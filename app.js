@@ -11,7 +11,6 @@ var app = angular.module('clockApp', []);
                         {value:   2,     name: "Dvi"        }, 
                         {value:   3,     name: "Trys"       }, 
                         {value:   4,     name: "Keturios"   }, 
-                        {value:   5,     name: "Penkios"    }, 
                         {value:   6,     name: "Šešios"     }, 
                         {value:   7,     name: "Septynios"  }, 
                         {value:   8,     name: "Aštuonios"  },
@@ -21,6 +20,8 @@ var app = angular.module('clockApp', []);
                         {value:  13,     name: "Pirma"      } ];
         
         $scope.tenHours = {value:  10,     name: "Dešimt"   };
+        $scope.five =   {value:  5,     name:  "Penkios"    };
+
                         
         $scope.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
                         {value:  2,     name: "Dviejų"      }, 

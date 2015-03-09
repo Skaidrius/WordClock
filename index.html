@@ -21,11 +21,13 @@
             <li ng-class="currMins >= 25 && currMins < 35 ? 'active' : 'passive'">{{half}}</li>
 
             <li ng-show="item.value!= 13" ng-repeat="item in hoursPastHalf" ng-class="currMins >= 40 && item.value-1 == currHours || currMins < 5 && item.value == currHours ? 'active' : 'passive'">{{item.name }}</li>
+
             <li ng-show="item.value!= 13" ng-repeat="item in hoursPastZero" ng-class="currMins >= 5 && currMins < 25 && item.value == currHours || currMins >= 25 && currMins < 40 && item.value-1 == currHours ? 'active' : 'passive'">{{item.name }}</li>
 
             <li ng-class="currMins > 9 && currMins < 15 || currHours == tenHours.value && currMins >= 0 && currMins < 25 || currMins >= 25 && currMins < 60 && tenHours.value-1 == currHours ? 'active' : 'passive'">{{tenHours.name}}</li>
-            <li ng-class="currMins >= 5 && currMins < 10 || currMins >=35 && five.value-1 == currHours || currMins < 5 && five.value == currHours ?
-            'active' : 'passive'">{{five.name}}</li>
+
+            <li ng-class="currMins >= 5 && currMins < 10 || currMins >=35 && five.value-1 == currHours ||
+            currMins < 5 && five.value == currHours ?  'active' : 'passive'">{{five.name}}</li>
 
             <li ng-class="currMins >= 15 && currMins < 20? 'active' : 'passive'">{{fifteen}}</li>
             <li ng-class="currMins >= 20 && currMins < 25 ? 'active' : 'passive'">{{twenty}}</li>
@@ -37,56 +39,29 @@
         
     <div id="clck-bgr-1">
         <ul>
-            <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40 ? 'visible' : 'hidden'">{{after}}</li>
-            <li ng-class="currMins >= 25 && currMins < 30 || currMins >= 40 ? 'visible' : 'hidden'" >{{till}}</li>
-            <li ng-class="currMins >= 35 && currMins < 40 ? 'visible' : 'hidden'" >{{afterhalf}}</li>
-            
-            <li ng-class="currMins >= 25 && currMins < 30 || currMins >=  55 || currMins >= 5 && currMins < 25 && item.value == currHours || 
-                    currMins >= 25 && currMins < 40 && item.value-1 == currHours?
-                    'visible' : 'hidden'" >{{fivetill}}</li>
-            <li ng-class="currMins >= 50 && currMins < 55 ? 'visible' : 'hidden'" >{{ten}}</li>
-            <li ng-class="currMins >= 45 && currMins < 50 ? 'visible' : 'hidden'" >{{quarter}}</li>
-            <li ng-class="currMins >= 40 && currMins < 45 ? 'visible' : 'hidden'" >{{twenty}}</li>
-            <li ng-class="currMins >= 25 && currMins < 35 ? 'visible' : 'hidden'" >{{half}}</li>
+                        <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40 ? 'visible' : 'hidden'">{{after}}</li>
+            <li ng-class="currMins >= 25 && currMins < 30 || currMins >= 40 ? 'visible' : 'hidden'">{{till}}</li>
+            <li ng-class="currMins >= 35 && currMins < 40 ? 'visible' : 'hidden'">{{afterhalf}}</li>
+            <li ng-class="currMins >= 25 && currMins < 30 || currMins >=  55 ? 'visible' : 'hidden'">{{fivetill}}</li>
+            <li ng-class="currMins >= 50 && currMins < 55 ? 'visible' : 'hidden'">{{ten}}</li>
+            <li ng-class="currMins >= 45 && currMins < 50 ? 'visible' : 'hidden'">{{quarter}}</li>
+            <li ng-class="currMins >= 40 && currMins < 45 ? 'visible' : 'hidden'">{{twenty}}</li>
+            <li ng-class="currMins >= 25 && currMins < 35 ? 'visible' : 'hidden'">{{half}}</li>
 
-            <li ng-show="item.value!= 13" ng-repeat="item in hoursPastHalf" 
-                ng-class="currMins >= 40 && item.value-1 == currHours ||
-                    currMins < 5 && item.value == currHours ?
-                        'visible' : 'hidden'"
-                            >{{item.name }}</li>
+            <li ng-show="item.value!= 13" ng-repeat="item in hoursPastHalf" ng-class="currMins >= 40 && item.value-1 == currHours || currMins < 5 && item.value == currHours ? 'visible' : 'hidden'">{{item.name }}</li>
 
-            <li ng-show="item.value!= 13" 
-                ng-repeat="item in hoursPastZero" 
-                ng-class="currMins >= 5 && currMins < 25 && item.value == currHours || 
-                    currMins >= 25 && currMins < 40 && item.value-1 == currHours ?
-                        'visible' : 'hidden'"
-                            >{{item.name }}</li>
+            <li ng-show="item.value!= 13" ng-repeat="item in hoursPastZero" ng-class="currMins >= 5 && currMins < 25 && item.value == currHours || currMins >= 25 && currMins < 40 && item.value-1 == currHours ? 'visible' : 'hidden'">{{item.name }}</li>
 
-            <li ng-class="currMins > 9 && currMins < 15 || 
-                    currHours == tenHours.value && currMins >= 0 && currMins < 25 || 
-                    currMins >= 25 && currMins < 60 && tenHours.value-1 == currHours ? 
-                        'visible' : 'hidden'"
-                            >{{tenHours.name}}</li>
+            <li ng-class="currMins > 9 && currMins < 15 || currHours == tenHours.value && currMins >= 0 && currMins < 25 || currMins >= 25 && currMins < 60 && tenHours.value-1 == currHours ? 'visible' : 'hidden'">{{tenHours.name}}</li>
 
-            <li ng-class="currMins >= 5 && currMins < 10 ||
-                    currMins >=35 && currMins < 40 ?
-                        'visible' : 'hidden'"
-                            >{{five}}</li>
-            <li ng-class="currMins >= 15 && currMins < 20 ?
-                        'visible' : 'hidden'"
-                            >{{fifteen}}</li>
-            <li ng-class="currMins >= 20 && currMins < 25 ?
-                        'visible' : 'hidden'"
-                            >{{twenty}}</li>
-            <li ng-class="currMins < 5 && currHours == 1 < 5 ?
-                        'visible' : 'hidden'"
-                            >{{hour}}</li>
-            <li ng-class="currMins < 5 && currHours > 1 && currHours <= 9 ?
-                        'visible' : 'hidden'"
-                            >{{hours}}</li>
-            <li ng-class="currMins < 5 && currHours > 9 ?
-                        'visible' : 'hidden'"
-                            >{{morehour}}</li>
+            <li ng-class="currMins >= 5 && currMins < 10 || currMins >=35 && five.value-1 == currHours ||
+            currMins < 5 && five.value == currHours ? 'visible' : 'hidden'">{{five.name}}</li>
+
+            <li ng-class="currMins >= 15 && currMins < 20 ? 'visible' : 'hidden'">{{fifteen}}</li>
+            <li ng-class="currMins >= 20 && currMins < 25 ? 'visible' : 'hidden'">{{twenty}}</li>
+            <li ng-class="currMins < 5 && currHours == 1 < 5 ? 'visible' : 'hidden'">{{hour}}</li>
+            <li ng-class="currMins < 5 && currHours > 1 && currHours <= 9 ? 'visible' : 'hidden'">{{hours}}</li>
+            <li ng-class="currMins < 5 && currHours > 9 ? 'visible' : 'hidden'">{{morehour}}</li>
         </ul>
         </div>
     
@@ -98,7 +73,7 @@
     <div ng-controller="DataController1" ng-init="currHours = '1'; currMins = '0';">
         <div id="clck-bgr">test
         <ul>
-            <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40? 'active' : 'passive'">{{after}}</li>
+            <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40 ? 'active' : 'passive'">{{after}}</li>
             <li ng-class="currMins >= 25 && currMins < 30 || currMins >= 40 ? 'active' : 'passive'">{{till}}</li>
             <li ng-class="currMins >= 35 && currMins < 40 ? 'active' : 'passive'">{{afterhalf}}</li>
             <li ng-class="currMins >= 25 && currMins < 30 || currMins >=  55 ? 'active' : 'passive'">{{fivetill}}</li>
@@ -113,8 +88,8 @@
 
             <li ng-class="currMins > 9 && currMins < 15 || currHours == tenHours.value && currMins >= 0 && currMins < 25 || currMins >= 25 && currMins < 60 && tenHours.value-1 == currHours ? 'active' : 'passive'">{{tenHours.name}}</li>
 
-            <li ng-class="currMins >= 5 && currMins < 10 || currMins >=35 && five.value-1 == currHours || currMins < 5 && five.value == currHours ?
-            'active' : 'passive'">{{five.name}}</li>
+            <li ng-class="currMins >= 5 && currMins < 10 || currMins >=35 && five.value-1 == currHours ||
+            currMins < 5 && five.value == currHours ?  'active' : 'passive'">{{five.name}}</li>
 
             <li ng-class="currMins >= 15 && currMins < 20? 'active' : 'passive'">{{fifteen}}</li>
             <li ng-class="currMins >= 20 && currMins < 25 ? 'active' : 'passive'">{{twenty}}</li>
