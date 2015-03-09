@@ -63,7 +63,7 @@ app.controller('DataController1', function($scope, $interval) {  //clone for tes
                         {value:   2,     name: "Dvi"        }, 
                         {value:   3,     name: "Trys"       }, 
                         {value:   4,     name: "Keturios"   }, 
-                        {value:   5,     name: "Penkios"    }, // naikint, palikt 1 (toliau)
+                        // {value:   5,     name: "Penkios"    }, // naikint, palikt 1 (toliau)
                         {value:   6,     name: "Šešios"     }, 
                         {value:   7,     name: "Septynios"  }, 
                         {value:   8,     name: "Aštuonios"  },
@@ -72,13 +72,14 @@ app.controller('DataController1', function($scope, $interval) {  //clone for tes
                         {value:  12,     name: "Dvylika"    },
                         {value:  13,     name: "Pirma"      } ];
         
-        $scope.tenHours = {value:  10,     name: "Dešimt"   };
+        $scope.tenHours = {value:  10,  name: "Dešimt"      };
+        $scope.five =   {value:  5,     name:  "Penkios"    };
                         
         $scope.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
                         {value:  2,     name: "Dviejų"      }, 
                         {value:  3,     name: "Trijų"       }, 
                         {value:  4,     name: "Keturių"     }, 
-                        {value:  5,     name: "Penkių"      },  //naikint (palikt pirmą /apibendrint su fivetill)
+                        {value:  5,     name: "Penkių"      },  
                         {value:  6,     name: "Šešių"       }, 
                         {value:  7,     name: "Septynių"    }, 
                         {value:  8,     name: "Aštuonių"    },
@@ -90,7 +91,6 @@ app.controller('DataController1', function($scope, $interval) {  //clone for tes
         $scope.till = "Be";
         $scope.after = "Po";
         
-        $scope.five = "Penkios";
         $scope.fivetill = "Penkių";
         $scope.ten = "Dešimt";
         $scope.quarter = "Penkiolikos";
