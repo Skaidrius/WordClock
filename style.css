@@ -9,7 +9,7 @@
 }
 
 ul {
-    width: auto;
+    max-width: 256px;
     height: auto;
     border: 1px solid grey;
     border-radius: 5px;
