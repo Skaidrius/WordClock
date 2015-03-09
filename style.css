@@ -1,26 +1,19 @@
 #clck-bgr {
     text-align: center;
-    width: auto;
-    height: auto;
-    padding: 15px;
-    border: 1px solid silver;
 }
 
 #clck-bgr-1 {
     text-align: center;
     max-width: 300px;
-    height: auto;
     margin: 0 auto;
-    border: 1px solid silver;
 }
 
 ul {
     width: auto;
     height: auto;
-    background-color: silver;
     border: 1px solid grey;
     border-radius: 5px;
-    padding-left: 0; 
+    padding: 0.7em; 
     margin: 5px;
 }
 ul li    {
