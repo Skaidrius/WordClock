@@ -5,7 +5,7 @@ var app = angular.module('clockApp', []);
         $scope.input = new Date();
         $scope.currHours = $filter('date')($scope.input, 'hh');
         $scope.currMins = $filter('date')($scope.input, 'mm');
-        $scope.currSecs = $filter('date')($scope.input, 'ss');  
+        $scope.currSecs = $filter('date')($scope.input, 'ss');
 
         $scope.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
                         {value:   2,     name: "Dvi"        }, 
@@ -22,7 +22,6 @@ var app = angular.module('clockApp', []);
         $scope.tenHours = {value:  10,     name: "Dešimt"   };
         $scope.five =   {value:  5,     name:  "Penkios"    };
 
-                        
         $scope.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
                         {value:  2,     name: "Dviejų"      }, 
                         {value:  3,     name: "Trijų"       }, 
@@ -39,7 +38,6 @@ var app = angular.module('clockApp', []);
         $scope.till = "Be";
         $scope.after = "Po";
         
-        $scope.five = "Penkios";
         $scope.fivetill = "Penkių";
         $scope.ten = "Dešimt";
         $scope.quarter = "Penkiolikos";
@@ -53,10 +51,24 @@ var app = angular.module('clockApp', []);
         $scope.morehour = "Valandų";
 
 },100 );
+    
+    $scope.showClassName = 'active';
+    $scope.hiddenClassName = 'passive';
+    
+    $scope.changeClass = function(){
+        if ($scope.showClassName != "active"){
+            $scope.showClassName = "active";
+            $scope.hiddenClassName = "passive";
+          } else {
+            $scope.showClassName = "visible";
+            $scope.hiddenClassName = "hidden";
+          }
+    };
 
 });
 
-app.controller('DataController1', function($scope, $interval) {  //clone for testing
+// tests
+app.controller('TestController', function($scope, $interval) {  //clone for testing
 
     $scope.init = $interval(function(){
 
@@ -64,7 +76,6 @@ app.controller('DataController1', function($scope, $interval) {  //clone for tes
                         {value:   2,     name: "Dvi"        }, 
                         {value:   3,     name: "Trys"       }, 
                         {value:   4,     name: "Keturios"   }, 
-                        // {value:   5,     name: "Penkios"    }, // naikint, palikt 1 (toliau)
                         {value:   6,     name: "Šešios"     }, 
                         {value:   7,     name: "Septynios"  }, 
                         {value:   8,     name: "Aštuonios"  },
@@ -108,3 +119,8 @@ app.controller('DataController1', function($scope, $interval) {  //clone for tes
 
 });
 
+app.directive('showBigClock', function(){
+    return {
+        templateUrl: 'clock.html'
+    };
+});

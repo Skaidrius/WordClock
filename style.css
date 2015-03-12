@@ -1,8 +1,8 @@
-#clck-bgr {
-    text-align: center;
+body {
+    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
 }
 
-#clck-bgr-1 {
+#clck-bgr {
     text-align: center;
     max-width: 300px;
 }
