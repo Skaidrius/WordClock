@@ -1,5 +1,5 @@
 var app = angular.module('clockApp', []);
-  app.controller('DataController', function($scope, $interval, $filter) {
+app.controller('DataController', function($scope, $interval, $filter) {
 
     $scope.init = $interval(function(){
         $scope.input = new Date();
@@ -50,7 +50,73 @@ var app = angular.module('clockApp', []);
         $scope.hours = "Valandos";
         $scope.morehour = "Valandų";
 
-},100 );
+    },100 );
+    
+    $scope.showClassName = 'active';
+    $scope.hiddenClassName = 'passive';
+    
+    $scope.changeClass = function(){
+        if ($scope.showClassName != "active"){
+            $scope.showClassName = "active";
+            $scope.hiddenClassName = "passive";
+          } else {
+            $scope.showClassName = "visible";
+            $scope.hiddenClassName = "hidden";
+          }
+    };
+
+});
+
+app.controller('DataControllerEn', function($scope, $interval, $filter) {
+
+    $scope.init = $interval(function(){
+        $scope.input = new Date();
+        $scope.currHours = $filter('date')($scope.input, 'hh');
+        $scope.currMins = $filter('date')($scope.input, 'mm');
+        $scope.currSecs = $filter('date')($scope.input, 'ss');
+
+        $scope.hoursArray= [ {value:   1,     name: "One" }, 
+                        {value:   2,     name: "Two"        }, 
+                        {value:   3,     name: "Three"       }, 
+                        {value:   4,     name: "Four"   }, 
+                        {value:   6,     name: "Six"     }, 
+                        {value:   7,     name: "Seven"  }, 
+                        {value:   8,     name: "Eight"  },
+                        {value:   9,     name: "Nine"   },
+                        {value:  11,     name: "Eleven" },
+                        {value:  12,     name: "Twelve"    },
+                        {value:  13,     name: ""      } ];
+        
+        $scope.tenHours = {value:  10,     name: "Ten"   };
+        $scope.five =   {value:  5,     name:  "Five"    };
+
+        $scope.hoursPastZero = [ {value:  1,     name: "One"     }, 
+                        {value:  2,     name: "Two"      }, 
+                        {value:  3,     name: "Three"       }, 
+                        {value:  4,     name: "Four"     }, 
+                        {value:  5,     name: "Five"      },  
+                        {value:  6,     name: "Six"       }, 
+                        {value:  7,     name: "Seven"    }, 
+                        {value:  8,     name: "Eight"    },
+                        {value:  9,     name: "Nine"     },
+                        {value:  11,    name: "Eleven" },
+                        {value:  12,    name: "Twelve"    },
+                        {value:  13,    name: ""      }  ];  
+
+        $scope.till = "Till";
+        $scope.after = "Past";
+        
+        $scope.fivetill = "Five";
+        $scope.ten = "Ten";
+        $scope.quarter = "Quarter";
+        $scope.fifteen = "Quarter";
+        $scope.twenty = "Twenty";
+        $scope.half = "Half Of";
+        $scope.afterhalf = "Half Of";
+    
+        $scope.hour = "O'Clock";
+
+    },100 );
     
     $scope.showClassName = 'active';
     $scope.hiddenClassName = 'passive';
@@ -122,5 +188,11 @@ app.controller('TestController', function($scope, $interval) {  //clone for test
 app.directive('showBigClock', function(){
     return {
         templateUrl: 'clock.html'
+    };
+});
+
+app.directive('showBigClockEn', function(){
+    return {
+        templateUrl: 'clockEn.html'
     };
 });

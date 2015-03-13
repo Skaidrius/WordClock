@@ -11,11 +11,15 @@
     
     <div ng-controller="DataController" ng-init="init();">
         <button ng-click="changeClass()">Keisti laikrodį</button><br>
-        <span class="digital">{{currHours}}: {{currMins}}: {{currSecs}}</span>
 
         <show-big-clock></show-big-clock>
     </div>
     
+    <div ng-controller="DataControllerEn" ng-init="init();">
+        <button ng-click="changeClass()">Change clock</button><br>
+
+        <show-big-clock-en></show-big-clock-en>
+    </div>
 
     <div ng-controller="TestController" ng-init="currHours = '1'; currMins = '0';">
         <button ng-click="show=true">Rodyti test</button>
