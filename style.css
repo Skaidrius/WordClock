@@ -7,7 +7,7 @@ body {
     max-width: 300px;
 }
 
-.clck-circle {
+ul {
     max-width: 512px;
     height: auto;
     border: 1px solid grey;
@@ -15,7 +15,7 @@ body {
     padding: 0.7em; 
     margin: 5px;
 }
-.clck-circle > li    {
+ul li    {
     list-style: none;
     display: inline-block;
     padding: 0 2px;
@@ -31,6 +31,9 @@ body {
 .digital {
     font-family: ‘Courier New’, Courier, monospace;
     font-size: 24px;
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .digital::before {

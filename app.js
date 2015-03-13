@@ -106,7 +106,6 @@ app.controller('DataControllerEn', function($scope, $interval, $filter) {
         $scope.till = "Till";
         $scope.after = "Past";
         
-        $scope.fivetill = "Five";
         $scope.ten = "Ten";
         $scope.quarter = "Quarter";
         $scope.fifteen = "Quarter";

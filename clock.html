@@ -1,5 +1,5 @@
 <div class="clck-bgr">
-<ul class= "clck-circle">
+<ul>
     <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40 ? showClassName : hiddenClassName">{{after}}</li>
     <li ng-class="currMins >= 25 && currMins < 30 || currMins >= 40 ? showClassName : hiddenClassName">{{till}}</li>
     <li ng-class="currMins >= 35 && currMins < 40 ? showClassName : hiddenClassName ">{{afterhalf}}</li>
@@ -24,8 +24,8 @@
     <li ng-class="currMins < 5 && currHours == 1 < 5 ? showClassName : hiddenClassName">{{hour}}</li>
     <li ng-class="currMins < 5 && currHours > 1 && currHours <= 9 ? showClassName : hiddenClassName">{{hours}}</li>
     <li ng-class="currMins < 5 && currHours > 9 ? showClassName : hiddenClassName">{{morehour}}</li>
-    <ul>
-        <li class="digital" >{{currHours}}:{{currMins}}:{{currSecs}}</li>
+    <ul class="digital">
+        <li>{{currHours}}:{{currMins}}:{{currSecs}}</li>
     </ul>
 </ul>
 </div>
