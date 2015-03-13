@@ -8,14 +8,15 @@
 </head>
 
 <body ng-app="clockApp">
-    
-    <div ng-controller="DataController" ng-init="init();">
+    <button ng-click="en=true; lt=false">En</button>
+    <button ng-click="en=false; lt=true">Lt</button>
+    <div ng-show="lt" ng-controller="DataController" ng-init="init();">
         <button ng-click="changeClass()">Keisti laikrodį</button><br>
 
         <show-big-clock></show-big-clock>
     </div>
     
-    <div ng-controller="DataControllerEn" ng-init="init();">
+    <div ng-show="en" ng-controller="DataControllerEn" ng-init="init();">
         <button ng-click="changeClass()">Change clock</button><br>
 
         <show-big-clock-en></show-big-clock-en>

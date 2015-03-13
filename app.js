@@ -6,6 +6,7 @@ app.controller('DataController', function($scope, $interval, $filter) {
         $scope.currHours = $filter('date')($scope.input, 'hh');
         $scope.currMins = $filter('date')($scope.input, 'mm');
         $scope.currSecs = $filter('date')($scope.input, 'ss');
+        $scope.currAP = $filter('date')($scope.input, '');
 
         $scope.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
                         {value:   2,     name: "Dvi"        }, 
@@ -71,9 +72,10 @@ app.controller('DataControllerEn', function($scope, $interval, $filter) {
 
     $scope.init = $interval(function(){
         $scope.input = new Date();
-        $scope.currHours = $filter('date')($scope.input, 'hh');
+        $scope.currHours = $filter('date')($scope.input, 'h');
         $scope.currMins = $filter('date')($scope.input, 'mm');
         $scope.currSecs = $filter('date')($scope.input, 'ss');
+        $scope.currAP = $filter('date')($scope.input, 'a');
 
         $scope.hoursArray= [ {value:   1,     name: "One" }, 
                         {value:   2,     name: "Two"        }, 
