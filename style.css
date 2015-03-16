@@ -14,6 +14,7 @@ ul {
     border-radius: 5px;
     padding: 0.7em; 
     margin: 5px;
+    
 }
 ul li    {
     list-style: none;
@@ -23,14 +24,7 @@ ul li    {
 }
 
 button {
-	background: #FEDA71;
-	background: -moz-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
-	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FEDA71),color-stop(100%,#FEBB49));
-	background: -webkit-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
-	background: -o-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
-	background: -ms-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
-	background: linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
-	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#FEDA71',endColorstr='#FEBB49',GradientType=0);
+	background: #fff;
 	padding:5px 10px;
 	color:#623F1D;
 	font-family:'Helvetica Neue',sans-serif;
@@ -38,7 +32,7 @@ button {
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
-	border:1px solid #623F1D
+	border:1px solid #623F1D;
 }
 
 .active   { color: #000; font-size: 1.4em}
