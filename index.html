@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="style.css"></link>
 </head>
 
-<body ng-app="clockApp">
+<body ng-app="clockApp" ng-show="lt=true">
     <button ng-click="en=true; lt=false">En</button>
     <button ng-click="en=false; lt=true">Lt</button>
     <div ng-show="lt" ng-controller="DataController" ng-init="init();">

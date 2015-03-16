@@ -3,7 +3,7 @@ app.controller('DataController', function($scope, $interval, $filter) {
 
     $scope.init = $interval(function(){
         $scope.input = new Date();
-        $scope.currHours = $filter('date')($scope.input, 'hh');
+        $scope.currHours = $filter('date')($scope.input, 'HH');
         $scope.currMins = $filter('date')($scope.input, 'mm');
         $scope.currSecs = $filter('date')($scope.input, 'ss');
         $scope.currAP = $filter('date')($scope.input, '');
