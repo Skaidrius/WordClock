@@ -7,23 +7,24 @@
     <link type="text/css" rel="stylesheet" href="style.css"></link>
 </head>
 
-<body ng-app="clockApp" ng-init="en=true; settings=false;">
+<body ng-app="clockApp" ng-init="en=true; change=false">
 
     <div ng-show='en' ng-controller="DataControllerEn" ng-init="init();" >
-        <show-big-clock-en ng-click="settings=!settings"></show-big-clock-en>
-        <button ng-show="settings" ng-click="changeClass()">Change clock</button>
+        <show-big-clock-en ng-click="change=!change"></show-big-clock-en>
+        <button ng-show="change" ng-click="changeClass()">Max/Min</button>
     </div>
 
     <div ng-show="lt" ng-controller="DataController" ng-init="init();">
-        <show-big-clock ng-click="settings=!settings"></show-big-clock>
-        <button ng-show="settings" ng-click="changeClass()">Keisti laikrodį</button>
+        <show-big-clock ng-click="change=!change"></show-big-clock>
+        <button ng-show="change" ng-click="changeClass()">Max/Min</button>
     </div>
 
     <div ng-init="en">
-        <button ng-show="lt" ng-click="en=true; lt=false">En</button>
-        <button ng-show="en" ng-click="en=false; lt=true">Lt</button>
-    
-
+        <button>
+            <span ng-show="lt" ng-click="en=true; lt=false">En</span>
+            <span ng-show="en" ng-click="en=false; lt=true">Lt</span>
+        </button>
+        
         <div ng-controller="TestController" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
             <div ng-show="show" >
