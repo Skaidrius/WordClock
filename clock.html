@@ -15,7 +15,8 @@
                     currMins >=  55 ?
                         showClassName : hiddenClassName">{{fivetill}}</li>
                         
-    <li ng-class="currMins >= 50 && currMins < 55 ?
+    <li ng-class="currMins >= 10 && currMins < 15 ||
+                    currMins >= 50 && currMins < 55 ?
                         showClassName : hiddenClassName">{{ten}}</li>
                         
     <li ng-class="currMins >= 45 && currMins < 50 ?

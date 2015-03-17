@@ -7,62 +7,36 @@
     <link type="text/css" rel="stylesheet" href="style.css"></link>
 </head>
 
-<body ng-app="clockApp" ng-init="en=true">
-    <button ng-click="en=true; lt=false">En</button>
-    <button ng-click="en=false; lt=true">Lt</button>
+<body ng-app="clockApp" ng-init="en=true; settings=false;">
+
+    <div ng-show='en' ng-controller="DataControllerEn" ng-init="init();" >
+        <show-big-clock-en ng-click="settings=!settings"></show-big-clock-en>
+        <button ng-show="settings" ng-click="changeClass()">Change clock</button>
+    </div>
+
     <div ng-show="lt" ng-controller="DataController" ng-init="init();">
-
-        <show-big-clock></show-big-clock>
-        <button ng-click="changeClass()">Keisti laikrodį</button><br>
+        <show-big-clock ng-click="settings=!settings"></show-big-clock>
+        <button ng-show="settings" ng-click="changeClass()">Keisti laikrodį</button>
     </div>
+
+    <div ng-init="en">
+        <button ng-show="lt" ng-click="en=true; lt=false">En</button>
+        <button ng-show="en" ng-click="en=false; lt=true">Lt</button>
     
-    <div ng-show="en" ng-controller="DataControllerEn" ng-init="init();">
 
-        <show-big-clock-en></show-big-clock-en>
-        <button ng-click="changeClass()">Change clock</button><br>
+        <div ng-controller="TestController" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
+            <button ng-init="show=false;" ng-click="show=!show">Test</button>
+            <div ng-show="show" >
+                <show-big-clock></show-big-clock>
+            </div>
+    
+             <div ng-show="show">
+                <input type="number" ng-model="currHours"/></label>
+                <input type="number" ng-model="currMins"/></label>
+             </div>
+             
+        </div>
     </div>
-
-    <div ng-controller="TestController" ng-init="currHours = '1'; currMins = '0';">
-        <button ng-click="show=true">Rodyti test</button>
-        <button ng-click="show=false">Slėpti test</button>
-        <div ng-show="show" id="clck-bgr">
-        <ul>
-            <li ng-class="currMins >= 5 && currMins < 25 || currMins >= 35 && currMins < 40 ? 'active' : 'passive'">{{after}}</li>
-            <li ng-class="currMins >= 25 && currMins < 30 || currMins >= 40 ? 'active' : 'passive'">{{till}}</li>
-            <li ng-class="currMins >= 35 && currMins < 40 ? 'active' : 'passive'">{{afterhalf}}</li>
-            <li ng-class="currMins >= 25 && currMins < 30 || currMins >=  55 ? 'active' : 'passive'">{{fivetill}}</li>
-            <li ng-class="currMins >= 50 && currMins < 55 ? 'active' : 'passive'">{{ten}}</li>
-            <li ng-class="currMins >= 45 && currMins < 50 ? 'active' : 'passive'">{{quarter}}</li>
-            <li ng-class="currMins >= 40 && currMins < 45 ? 'active' : 'passive'">{{twenty}}</li>
-            <li ng-class="currMins >= 25 && currMins < 35 ? 'active' : 'passive'">{{half}}</li>
-
-            <li ng-show="item.value!= 13" ng-repeat="item in hoursPastHalf" ng-class="currMins >= 40 && item.value-1 == currHours || currMins < 5 && item.value == currHours ? 'active' : 'passive'">{{item.name }}</li>
-
-            <li ng-show="item.value!= 13" ng-repeat="item in hoursPastZero" ng-class="currMins >= 5 && currMins < 25 && item.value == currHours || currMins >= 25 && currMins < 40 && item.value-1 == currHours ? 'active' : 'passive'">{{item.name }}</li>
-
-            <li ng-class="currMins > 9 && currMins < 15 || currHours == tenHours.value && currMins >= 0 && currMins < 25 || currMins >= 25 && currMins < 60 && tenHours.value-1 == currHours ? 'active' : 'passive'">{{tenHours.name}}</li>
-
-            <li ng-class="currMins < 10 && five.value == currHours ||
-                    currMins > 35 && five.value-1 == currHours ||
-                    currMins >=5 && currMins < 10 || 
-                    currMins >= 35 && currMins < 40 ? 'active' : 'passive'">{{five.name}}</li>
-
-            <li ng-class="currMins >= 15 && currMins < 20? 'active' : 'passive'">{{fifteen}}</li>
-            <li ng-class="currMins >= 20 && currMins < 25 ? 'active' : 'passive'">{{twenty}}</li>
-            <li ng-class="currMins < 5 && currHours == 1 < 5 ? 'active' : 'passive'">{{hour}}</li>
-            <li ng-class="currMins < 5 && currHours > 1 && currHours <= 9 ? 'active' : 'passive'">{{hours}}</li>
-            <li ng-class="currMins < 5 && currHours > 9 ? 'active' : 'passive'">{{morehour}}</li>
-        </ul>
-        
-        <div class="digital">
-            <span>{{currHours}}: {{currMins}}</span><br>
-         </div>
-         <div>
-            <input type="number" ng-model="currHours"/></label>
-            <input type="number" ng-model="currMins"/></label>
-         </div>
-         
-    </div> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>

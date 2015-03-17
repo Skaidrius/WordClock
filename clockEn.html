@@ -11,12 +11,12 @@
                     currMins >=10 && currMins < 15 ?
                         showClassName : hiddenClassName">{{ten}}</li>
                         
-    <li ng-class="currMins >= 15 && currMins < 20 ?
+    <li ng-class="currMins >= 15 && currMins < 20 ||
+                    currMins >= 45 && currMins < 50 ?
                         showClassName : hiddenClassName">{{fifteen}}</li>
                         
     <li ng-class="currMins >= 40 && currMins < 45 ||
-                    currMins >= 20 && currMins < 25 ||
-                    currMins >= 45 && currMins < 50 ?
+                    currMins >= 20 && currMins < 25 ?
                         showClassName : hiddenClassName">{{twenty}}</li>
 
     <li ng-class="currMins >= 25 && currMins < 30 ||

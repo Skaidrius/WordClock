@@ -23,16 +23,18 @@ ul li    {
     font-weight: bold;
 }
 
-button {
+button, input {
 	background: #fff;
+	margin: 5px;
 	padding:5px 10px;
+	max-width: 110px;
 	color:#623F1D;
 	font-family:'Helvetica Neue',sans-serif;
 	font-size:16px;
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
-	border:1px solid #623F1D;
+	border:1px solid grey;
 }
 
 .active   { color: #000; font-size: 1.4em}
@@ -46,8 +48,4 @@ button {
     border: none;
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-.digital::before {
-    clear: both;
 }

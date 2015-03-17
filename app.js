@@ -92,24 +92,10 @@ app.controller('DataControllerEn', function($scope, $interval, $filter) {
         $scope.tenHours = {value:  10,     name: "Ten"   };
         $scope.five =   {value:  5,     name:  "Five"    };
 
-        $scope.hoursPastZero = [ {value:  1,     name: "One"     }, 
-                        {value:  2,     name: "Two"      }, 
-                        {value:  3,     name: "Three"       }, 
-                        {value:  4,     name: "Four"     }, 
-                        {value:  5,     name: "Five"      },  
-                        {value:  6,     name: "Six"       }, 
-                        {value:  7,     name: "Seven"    }, 
-                        {value:  8,     name: "Eight"    },
-                        {value:  9,     name: "Nine"     },
-                        {value:  11,    name: "Eleven" },
-                        {value:  12,    name: "Twelve"    },
-                        {value:  13,    name: ""      }  ];  
-
         $scope.till = "Till";
         $scope.after = "Past";
         
         $scope.ten = "Ten";
-        $scope.quarter = "Quarter";
         $scope.fifteen = "Quarter";
         $scope.twenty = "Twenty";
         $scope.half = "Half Of";
@@ -181,6 +167,9 @@ app.controller('TestController', function($scope, $interval) {  //clone for test
         $scope.hour = "Valanda";
         $scope.hours = "Valandos";
         $scope.morehour = "Valandų";
+        
+        $scope.showClassName = 'active';
+        $scope.hiddenClassName = 'passive';
 
 },100 );
 
