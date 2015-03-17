@@ -87,7 +87,7 @@ app.controller('DataControllerEn', function($scope, $interval, $filter) {
                         {value:   9,     name: "Nine"   },
                         {value:  11,     name: "Eleven" },
                         {value:  12,     name: "Twelve"    },
-                        {value:  13,     name: ""      } ];
+                        {value:  13,     name: "One"      } ];
         
         $scope.tenHours = {value:  10,     name: "Ten"   };
         $scope.five =   {value:  5,     name:  "Five"    };
