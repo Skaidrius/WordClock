@@ -29,13 +29,11 @@
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
             <div ng-show="show" >
                 <show-test-clock></show-test-clock>
+                 <div ng-show="show">
+                    <input type="number" ng-model="currHours">
+                    <input type="number" ng-model="currMins">
+                 </div>
             </div>
-    
-             <div ng-show="show">
-                <input type="number" ng-model="currHours"/></label>
-                <input type="number" ng-model="currMins"/></label>
-             </div>
-             
         </div>
     </div>
 

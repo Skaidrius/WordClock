@@ -1,15 +1,20 @@
 var app = angular.module('clockApp', []);
-app.controller('DataController', function($interval, $filter) {
 
+app.controller('DataController', ['$interval', '$filter',  
+                        function($interval, $filter) {
+ 
     var vm = this;
+
+//timelt
     vm.init = $interval(function(){
         vm.input = new Date();
         vm.currHours = $filter('date')(vm.input, 'HH');
         vm.currMins = $filter('date')(vm.input, 'mm');
         vm.currSecs = $filter('date')(vm.input, 'ss');
-        vm.currAP = $filter('date')(vm.input, '');
+    },100 );
 
-        vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
+// datalt
+    vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
                         {value:   2,     name: "Dvi"        }, 
                         {value:   3,     name: "Trys"       }, 
                         {value:   4,     name: "Keturios"   }, 
@@ -21,39 +26,38 @@ app.controller('DataController', function($interval, $filter) {
                         {value:  12,     name: "Dvylika"    },
                         {value:  13,     name: "Pirma"      } ];
         
-        vm.tenHours = {value:  10,     name: "Dešimt"   };
-        vm.five =   {value:  5,     name:  "Penkios"    };
+    vm.tenHours = {value:  10,     name: "Dešimt"   };
+    vm.five =   {value:  5,     name:  "Penkios"    };
 
-        vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
-                        {value:  2,     name: "Dviejų"      }, 
-                        {value:  3,     name: "Trijų"       }, 
-                        {value:  4,     name: "Keturių"     }, 
-                        {value:  5,     name: "Penkių"      },  
-                        {value:  6,     name: "Šešių"       }, 
-                        {value:  7,     name: "Septynių"    }, 
-                        {value:  8,     name: "Aštuonių"    },
-                        {value:  9,     name: "Devynių"     },
-                        {value:  11,    name: "Vienuolikos" },
-                        {value:  12,    name: "Dvylikos"    },
-                        {value:  13,    name: "Pirmos"      }  ];  
+    vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
+                    {value:  2,     name: "Dviejų"      }, 
+                    {value:  3,     name: "Trijų"       }, 
+                    {value:  4,     name: "Keturių"     }, 
+                    {value:  5,     name: "Penkių"      },  
+                    {value:  6,     name: "Šešių"       }, 
+                    {value:  7,     name: "Septynių"    }, 
+                    {value:  8,     name: "Aštuonių"    },
+                    {value:  9,     name: "Devynių"     },
+                    {value:  11,    name: "Vienuolikos" },
+                    {value:  12,    name: "Dvylikos"    },
+                    {value:  13,    name: "Pirmos"      }  ];  
 
-        vm.till = "Be";
-        vm.after = "Po";
-        
-        vm.fivetill = "Penkių";
-        vm.ten = "Dešimt";
-        vm.quarter = "Penkiolikos";
-        vm.fifteen = "Penkiolika";
-        vm.twenty = "Dvidešimt";
-        vm.half = "Pusė";
-        vm.afterhalf = "Pusės";
+    vm.till = "Be";
+    vm.after = "Po";
     
-        vm.hour = "Valanda";
-        vm.hours = "Valandos";
-        vm.morehour = "Valandų";
+    vm.fivetill = "Penkių";
+    vm.ten = "Dešimt";
+    vm.quarter = "Penkiolikos";
+    vm.fifteen = "Penkiolika";
+    vm.twenty = "Dvidešimt";
+    vm.half = "Pusė";
+    vm.afterhalf = "Pusės";
 
-    },100 );
-    
+    vm.hour = "Valanda";
+    vm.hours = "Valandos";
+    vm.morehour = "Valandų";
+
+//classes
     vm.showClassName = 'active';
     vm.hiddenClassName = 'passive';
     
@@ -66,12 +70,14 @@ app.controller('DataController', function($interval, $filter) {
             vm.hiddenClassName = "hidden";
           }
     };
-
-});
-
-app.controller('DataControllerEn', function($interval, $filter) {
     
+}]);
+
+app.controller('DataControllerEn', ['$interval', '$filter',
+                        function($interval, $filter) {
+
     var vm = this;
+//timeen
     vm.init = $interval(function(){
         vm.input = new Date();
         vm.currHours = $filter('date')(vm.input, 'h');
@@ -79,7 +85,9 @@ app.controller('DataControllerEn', function($interval, $filter) {
         vm.currSecs = $filter('date')(vm.input, 'ss');
         vm.currAP = $filter('date')(vm.input, 'a');
 
-        vm.hoursArray= [ {value:   1,     name: "One" }, 
+    },100 );
+//dataen    
+    vm.hoursArray= [ {value:   1,     name: "One" }, 
                         {value:   2,     name: "Two"    }, 
                         {value:   3,     name: "Three"  }, 
                         {value:   4,     name: "Four"   },
@@ -92,25 +100,24 @@ app.controller('DataControllerEn', function($interval, $filter) {
                         {value:  12,     name: "Twelve"    },
                         {value:  13,     name: "One"      } ];
         
-        vm.tenHours = {value:  10,     name: "Ten"   };
-        vm.five =   {value:  5,     name:  "Five"    };
+    vm.tenHours = {value:  10,     name: "Ten"   };
+    vm.five =   {value:  5,     name:  "Five"    };
 
-        vm.till = "Till";
-        vm.after = "Past";
-        
-        vm.ten = "Ten";
-        vm.fifteen = "Quarter";
-        vm.twenty = "Twenty";
-        vm.half = "Half Of";
-        vm.afterhalf = "Half Of";
+    vm.till = "Till";
+    vm.after = "Past";
     
-        vm.hour = "O'Clock";
+    vm.ten = "Ten";
+    vm.fifteen = "Quarter";
+    vm.twenty = "Twenty";
+    vm.half = "Half Of";
+    vm.afterhalf = "Half Of";
 
-    },100 );
+    vm.hour = "O'Clock";
     
+//classes    
     vm.showClassName = 'active';
     vm.hiddenClassName = 'passive';
-    
+
     vm.changeClass = function(){
         if (vm.showClassName != "active"){
             vm.showClassName = "active";
@@ -120,58 +127,59 @@ app.controller('DataControllerEn', function($interval, $filter) {
             vm.hiddenClassName = "hidden";
           }
     };
-
-});
+}]);
 
 // tests
-app.controller('TestController', function() {  //clone for testing
+app.controller('TestController', function() {  //cloned lt version part inside of init for testing
 
-        var vm = this;
-        vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
-                        {value:   2,     name: "Dvi"        }, 
-                        {value:   3,     name: "Trys"       }, 
-                        {value:   4,     name: "Keturios"   }, 
-                        {value:   6,     name: "Šešios"     }, 
-                        {value:   7,     name: "Septynios"  }, 
-                        {value:   8,     name: "Aštuonios"  },
-                        {value:   9,     name: "Devynios"   },
-                        {value:  11,     name: "Vienuolika" },
-                        {value:  12,     name: "Dvylika"    },
-                        {value:  13,     name: "Pirma"      } ];
-        
-        vm.tenHours = {value:  10,  name: "Dešimt"      };
-        vm.five =   {value:  5,     name:  "Penkios"    };
-                        
-        vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
-                        {value:  2,     name: "Dviejų"      }, 
-                        {value:  3,     name: "Trijų"       }, 
-                        {value:  4,     name: "Keturių"     }, 
-                        {value:  5,     name: "Penkių"      },  
-                        {value:  6,     name: "Šešių"       }, 
-                        {value:  7,     name: "Septynių"    }, 
-                        {value:  8,     name: "Aštuonių"    },
-                        {value:  9,     name: "Devynių"     },
-                        {value:  11,    name: "Vienuolikos" },
-                        {value:  12,    name: "Dvylikos"    },
-                        {value:  13,    name: "Pirmos"      }  ];  
+var vm = this;
+//data
+vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
+                {value:   2,     name: "Dvi"        }, 
+                {value:   3,     name: "Trys"       }, 
+                {value:   4,     name: "Keturios"   }, 
+                {value:   6,     name: "Šešios"     }, 
+                {value:   7,     name: "Septynios"  }, 
+                {value:   8,     name: "Aštuonios"  },
+                {value:   9,     name: "Devynios"   },
+                {value:  11,     name: "Vienuolika" },
+                {value:  12,     name: "Dvylika"    },
+                {value:  13,     name: "Pirma"      } ];
 
-        vm.till = "Be";
-        vm.after = "Po";
-        
-        vm.fivetill = "Penkių";
-        vm.ten = "Dešimt";
-        vm.quarter = "Penkiolikos";
-        vm.fifteen = "Penkiolika";
-        vm.twenty = "Dvidešimt";
-        vm.half = "Pusė";
-        vm.afterhalf = "Pusės";
-    
-        vm.hour = "Valanda";
-        vm.hours = "Valandos";
-        vm.morehour = "Valandų";
-        
-    vm.showClassName = 'active';
-    vm.hiddenClassName = 'passive';
+vm.tenHours = {value:  10,  name: "Dešimt"      };
+vm.five =   {value:  5,     name:  "Penkios"    };
+                
+vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
+                {value:  2,     name: "Dviejų"      }, 
+                {value:  3,     name: "Trijų"       }, 
+                {value:  4,     name: "Keturių"     }, 
+                {value:  5,     name: "Penkių"      },  
+                {value:  6,     name: "Šešių"       }, 
+                {value:  7,     name: "Septynių"    }, 
+                {value:  8,     name: "Aštuonių"    },
+                {value:  9,     name: "Devynių"     },
+                {value:  11,    name: "Vienuolikos" },
+                {value:  12,    name: "Dvylikos"    },
+                {value:  13,    name: "Pirmos"      }  ];  
+
+vm.till = "Be";
+vm.after = "Po";
+
+vm.fivetill = "Penkių";
+vm.ten = "Dešimt";
+vm.quarter = "Penkiolikos";
+vm.fifteen = "Penkiolika";
+vm.twenty = "Dvidešimt";
+vm.half = "Pusė";
+vm.afterhalf = "Pusės";
+
+vm.hour = "Valanda";
+vm.hours = "Valandos";
+vm.morehour = "Valandų";
+
+//classes
+vm.showClassName = 'active';
+vm.hiddenClassName = 'passive';
 
 });
 
