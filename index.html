@@ -9,26 +9,26 @@
 
 <body ng-app="clockApp" ng-init="en=true; change=false">
 
-    <div ng-show='en' ng-controller="DataControllerEn" ng-init="init();" >
+    <div ng-show='en' ng-controller="DataControllerEn as dataen" ng-init="init();" >
         <show-big-clock-en ng-click="change=!change"></show-big-clock-en>
         <button ng-show="change" ng-click="changeClass()">Max/Min</button>
     </div>
 
-    <div ng-show="lt" ng-controller="DataController" ng-init="init();">
+    <div ng-show="lt" ng-controller="DataController as data" ng-init="init();">
         <show-big-clock ng-click="change=!change"></show-big-clock>
         <button ng-show="change" ng-click="changeClass()">Max/Min</button>
     </div>
 
-    <div ng-init="en">
+    <div>
         <button>
             <span ng-show="lt" ng-click="en=true; lt=false">En</span>
             <span ng-show="en" ng-click="en=false; lt=true">Lt</span>
         </button>
         
-        <div ng-controller="TestController" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
+        <div ng-controller="TestController as tests" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
             <div ng-show="show" >
-                <show-big-clock></show-big-clock>
+                <show-test-clock></show-test-clock>
             </div>
     
              <div ng-show="show">

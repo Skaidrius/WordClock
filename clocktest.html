@@ -1,0 +1,85 @@
+<div class="clck-bgr">
+<ul>
+    <li ng-class="currMins >= 5 && currMins < 25 ||
+                    currMins >= 35 && currMins < 40 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.after}}</li>
+                        
+    <li ng-class="currMins >= 25 && currMins < 30 ||
+                    currMins >= 40 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.till}}</li>
+                        
+    <li ng-class="currMins >= 35 && currMins < 40 ?
+                        tests.showClassName : tests.hiddenClassName ">{{tests.afterhalf}}</li>
+                        
+    <li ng-class="currMins >= 25 && currMins < 30 ||
+                    currMins >=  55 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.fivetill}}</li>
+                        
+    <li ng-class="currMins >= 50 && currMins < 55 ||
+                    currMins >= 10 && currMins < 15 && currHours == tests.tenHours.value ||
+                    currMins >= 10 && currMins < 15 && currHours - 12 == tests.tenHours.value ? 
+                        tests.showClassName : tests.hiddenClassName">{{tests.ten}}</li>
+                        
+    <li ng-class="currMins >= 45 && currMins < 50 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.quarter}}</li>
+                        
+    <li ng-class="currMins >= 40 && currMins < 45 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.twenty}}</li>
+                        
+    <li ng-class="currMins >= 25 && currMins < 35 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.half}}</li>
+
+    <li ng-show="item.value!= 13" 
+        ng-repeat="item in tests.hoursPastHalf" 
+        ng-class="currMins >= 40 && item.value-1 == currHours ||
+                    currMins >= 40 && item.value-1 == currHours-12 ||
+                    currMins < 5 && item.value == currHours ||
+                    currMins < 5 && item.value == currHours - 12?
+                        tests.showClassName : tests.hiddenClassName">{{item.name }}</li>
+                        
+    <li ng-show="item.value!= 13" 
+        ng-repeat="item in tests.hoursPastZero" 
+        ng-class="currMins >= 5 && currMins < 25 && item.value == currHours ||
+                    currMins >= 5 && currMins < 25 && item.value == currHours -12 ||
+                    currMins >= 25 && currMins < 40 && item.value-1 == currHours ||
+                    currMins >= 25 && currMins < 40 && item.value-1 == currHours - 12 ?
+                        tests.showClassName : tests.hiddenClassName">{{item.name }}</li>
+                        
+    <li ng-class="currMins > 9 && currMins < 15 ||
+                    currHours == tests.tenHours.value && currMins >= 0 && currMins < 25 ||
+                    currHours - 12 == tests.tenHours.value && currMins >= 0 && currMins < 25 ||
+                    currMins >= 25 && currMins < 60 && tests.tenHours.value-1 == currHours ||
+                    currMins >= 25 && currMins < 60 && tests.tenHours.value-1 == currHours - 12 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.tenHours.name}}</li>
+
+    <li ng-class="currMins < 10 && tests.five.value == currHours ||
+                    currMins < 10 && tests.five.value == currHours - 12 ||
+                    currMins > 35 && tests.five.value-1 == currHours ||
+                    currMins > 35 && tests.five.value-1 == currHours - 12 ||
+                    currMins >=5 && currMins < 10 || 
+                    currMins >= 35 && currMins < 40 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.five.name}}</li>
+
+    <li ng-class="currMins >= 15 && currMins < 20 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.fifteen}}</li>
+                        
+    <li ng-class="currMins >= 20 && currMins < 25 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.twenty}}</li>
+                        
+    <li ng-class="currMins < 5 && currHours == 1 ||
+                    currMins < 5 && currHours - 12 == 1 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.hour}}</li>
+                        
+    <li ng-class="currMins < 5 && currHours > 1 && currHours <= 9 ||
+                    currMins < 5 && currHours > 13 && currHours <= 21 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.hours}}</li>
+                        
+    <li ng-class="currMins < 5 && currHours > 9 && currHours < 13 ||
+                    currMins < 5 && currHours > 21 ?
+                        tests.showClassName : tests.hiddenClassName">{{tests.morehour}}</li>
+                        
+    <ul class="digital">
+        <li>{{currHours}}:{{currMins}}:{{currSecs}}</li>
+    </ul>
+</ul>
+</div>

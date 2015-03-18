@@ -37,11 +37,20 @@ button, input {
 	border:1px solid grey;
 }
 
-.active   { color: #000; font-size: 1.4em}
-.passive  { color: #777; font-size: 0.6em}
+.active {
+    color: #000; 
+    font-size: 1.4em}
+.passive  {
+    color: #777; 
+    font-size: 0.6em}
 
-.visible   { visibility: visible; font-size: 2em}
-.hidden  { display: none; font-size: 0.6em}
+.visible {
+    visibility: visible;
+    margin-top: 0.3em;
+    font-size: 2em}
+.hidden {
+    display: none;
+    font-size: 0.6em}
 
 .digital {
     font-size: 24px;
