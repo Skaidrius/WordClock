@@ -1,14 +1,15 @@
 var app = angular.module('clockApp', []);
-app.controller('DataController', function($scope, $interval, $filter) {
+app.controller('DataController', function($interval, $filter) {
 
-    $scope.init = $interval(function(){
-        $scope.input = new Date();
-        $scope.currHours = $filter('date')($scope.input, 'HH');
-        $scope.currMins = $filter('date')($scope.input, 'mm');
-        $scope.currSecs = $filter('date')($scope.input, 'ss');
-        $scope.currAP = $filter('date')($scope.input, '');
+    var vm = this;
+    vm.init = $interval(function(){
+        vm.input = new Date();
+        vm.currHours = $filter('date')(vm.input, 'HH');
+        vm.currMins = $filter('date')(vm.input, 'mm');
+        vm.currSecs = $filter('date')(vm.input, 'ss');
+        vm.currAP = $filter('date')(vm.input, '');
 
-        $scope.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
+        vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
                         {value:   2,     name: "Dvi"        }, 
                         {value:   3,     name: "Trys"       }, 
                         {value:   4,     name: "Keturios"   }, 
@@ -20,10 +21,10 @@ app.controller('DataController', function($scope, $interval, $filter) {
                         {value:  12,     name: "Dvylika"    },
                         {value:  13,     name: "Pirma"      } ];
         
-        $scope.tenHours = {value:  10,     name: "Dešimt"   };
-        $scope.five =   {value:  5,     name:  "Penkios"    };
+        vm.tenHours = {value:  10,     name: "Dešimt"   };
+        vm.five =   {value:  5,     name:  "Penkios"    };
 
-        $scope.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
+        vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
                         {value:  2,     name: "Dviejų"      }, 
                         {value:  3,     name: "Trijų"       }, 
                         {value:  4,     name: "Keturių"     }, 
@@ -36,48 +37,49 @@ app.controller('DataController', function($scope, $interval, $filter) {
                         {value:  12,    name: "Dvylikos"    },
                         {value:  13,    name: "Pirmos"      }  ];  
 
-        $scope.till = "Be";
-        $scope.after = "Po";
+        vm.till = "Be";
+        vm.after = "Po";
         
-        $scope.fivetill = "Penkių";
-        $scope.ten = "Dešimt";
-        $scope.quarter = "Penkiolikos";
-        $scope.fifteen = "Penkiolika";
-        $scope.twenty = "Dvidešimt";
-        $scope.half = "Pusė";
-        $scope.afterhalf = "Pusės";
+        vm.fivetill = "Penkių";
+        vm.ten = "Dešimt";
+        vm.quarter = "Penkiolikos";
+        vm.fifteen = "Penkiolika";
+        vm.twenty = "Dvidešimt";
+        vm.half = "Pusė";
+        vm.afterhalf = "Pusės";
     
-        $scope.hour = "Valanda";
-        $scope.hours = "Valandos";
-        $scope.morehour = "Valandų";
+        vm.hour = "Valanda";
+        vm.hours = "Valandos";
+        vm.morehour = "Valandų";
 
     },100 );
     
-    $scope.showClassName = 'active';
-    $scope.hiddenClassName = 'passive';
+    vm.showClassName = 'active';
+    vm.hiddenClassName = 'passive';
     
-    $scope.changeClass = function(){
-        if ($scope.showClassName != "active"){
-            $scope.showClassName = "active";
-            $scope.hiddenClassName = "passive";
+    vm.changeClass = function(){
+        if (vm.showClassName != "active"){
+            vm.showClassName = "active";
+            vm.hiddenClassName = "passive";
           } else {
-            $scope.showClassName = "visible";
-            $scope.hiddenClassName = "hidden";
+            vm.showClassName = "visible";
+            vm.hiddenClassName = "hidden";
           }
     };
 
 });
 
-app.controller('DataControllerEn', function($scope, $interval, $filter) {
+app.controller('DataControllerEn', function($interval, $filter) {
+    
+    var vm = this;
+    vm.init = $interval(function(){
+        vm.input = new Date();
+        vm.currHours = $filter('date')(vm.input, 'h');
+        vm.currMins = $filter('date')(vm.input, 'mm');
+        vm.currSecs = $filter('date')(vm.input, 'ss');
+        vm.currAP = $filter('date')(vm.input, 'a');
 
-    $scope.init = $interval(function(){
-        $scope.input = new Date();
-        $scope.currHours = $filter('date')($scope.input, 'h');
-        $scope.currMins = $filter('date')($scope.input, 'mm');
-        $scope.currSecs = $filter('date')($scope.input, 'ss');
-        $scope.currAP = $filter('date')($scope.input, 'a');
-
-        $scope.hoursArray= [ {value:   1,     name: "One" }, 
+        vm.hoursArray= [ {value:   1,     name: "One" }, 
                         {value:   2,     name: "Two"    }, 
                         {value:   3,     name: "Three"  }, 
                         {value:   4,     name: "Four"   },
@@ -90,32 +92,32 @@ app.controller('DataControllerEn', function($scope, $interval, $filter) {
                         {value:  12,     name: "Twelve"    },
                         {value:  13,     name: "One"      } ];
         
-        $scope.tenHours = {value:  10,     name: "Ten"   };
-        $scope.five =   {value:  5,     name:  "Five"    };
+        vm.tenHours = {value:  10,     name: "Ten"   };
+        vm.five =   {value:  5,     name:  "Five"    };
 
-        $scope.till = "Till";
-        $scope.after = "Past";
+        vm.till = "Till";
+        vm.after = "Past";
         
-        $scope.ten = "Ten";
-        $scope.fifteen = "Quarter";
-        $scope.twenty = "Twenty";
-        $scope.half = "Half Of";
-        $scope.afterhalf = "Half Of";
+        vm.ten = "Ten";
+        vm.fifteen = "Quarter";
+        vm.twenty = "Twenty";
+        vm.half = "Half Of";
+        vm.afterhalf = "Half Of";
     
-        $scope.hour = "O'Clock";
+        vm.hour = "O'Clock";
 
     },100 );
     
-    $scope.showClassName = 'active';
-    $scope.hiddenClassName = 'passive';
+    vm.showClassName = 'active';
+    vm.hiddenClassName = 'passive';
     
-    $scope.changeClass = function(){
-        if ($scope.showClassName != "active"){
-            $scope.showClassName = "active";
-            $scope.hiddenClassName = "passive";
+    vm.changeClass = function(){
+        if (vm.showClassName != "active"){
+            vm.showClassName = "active";
+            vm.hiddenClassName = "passive";
           } else {
-            $scope.showClassName = "visible";
-            $scope.hiddenClassName = "hidden";
+            vm.showClassName = "visible";
+            vm.hiddenClassName = "hidden";
           }
     };
 

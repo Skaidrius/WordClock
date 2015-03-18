@@ -1,53 +1,54 @@
 <div class="clck-bgr">
 <ul>
-    <li ng-class="currMins < 10 && five.value == currHours ||
-                    currMins >=5 && currMins < 10 ||
-                    currMins >= 35 && currMins < 40 || 
-                    currMins >=25 && currMins < 30 || 
-                    currMins >=  55 ? showClassName : hiddenClassName">{{five.name}}</li>
+    <li ng-class="dataen.currMins < 10 && dataen.five.value == dataen.currHours ||
+                    dataen.currMins >=5 && dataen.currMins < 10 ||
+                    dataen.currMins >= 35 && dataen.currMins < 40 || 
+                    dataen.currMins >=25 && dataen.currMins < 30 || 
+                    dataen.currMins >=  55 ? 
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.five.name}}</li>
                     
-    <li ng-class="currMins >= 50 && currMins < 55 ||
-                    currMins >=10 && currMins < 15 ?
-                        showClassName : hiddenClassName">{{ten}}</li>
+    <li ng-class="dataen.currMins >= 50 && dataen.currMins < 55 ||
+                    dataen.currMins >=10 && dataen.currMins < 15 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.ten}}</li>
                         
-    <li ng-class="currMins >= 15 && currMins < 20 ||
-                    currMins >= 45 && currMins < 50 ?
-                        showClassName : hiddenClassName">{{fifteen}}</li>
+    <li ng-class="dataen.currMins >= 15 && dataen.currMins < 20 ||
+                    dataen.currMins >= 45 && dataen.currMins < 50 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.fifteen}}</li>
                         
-    <li ng-class="currMins >= 40 && currMins < 45 ||
-                    currMins >= 20 && currMins < 25 ?
-                        showClassName : hiddenClassName">{{twenty}}</li>
+    <li ng-class="dataen.currMins >= 40 && dataen.currMins < 45 ||
+                    dataen.currMins >= 20 && dataen.currMins < 25 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.twenty}}</li>
 
-    <li ng-class="currMins >= 25 && currMins < 30 ||
-                    currMins >= 40 ?
-                        showClassName : hiddenClassName">{{till}}</li>
+    <li ng-class="dataen.currMins >= 25 && dataen.currMins < 30 ||
+                    dataen.currMins >= 40 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.till}}</li>
                         
-    <li ng-class="currMins >= 5 && currMins < 25 ||
-                    currMins >= 35 && currMins < 40 ?
-                        showClassName : hiddenClassName">{{after}}</li>
+    <li ng-class="dataen.currMins >= 5 && dataen.currMins < 25 ||
+                    dataen.currMins >= 35 && dataen.currMins < 40 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.after}}</li>
                         
-    <li ng-class="currMins >= 25 && currMins < 35 ||
-                    currMins >= 35 && currMins < 40 ||
-                    currMins >= 35 && currMins < 40 ?
-                        showClassName : hiddenClassName">{{half}}</li>
+    <li ng-class="dataen.currMins >= 25 && dataen.currMins < 35 ||
+                    dataen.currMins >= 35 && dataen.currMins < 40 ||
+                    dataen.currMins >= 35 && dataen.currMins < 40 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.half}}</li>
 
     <li ng-show="item.value!= 13" 
-        ng-repeat="item in hoursArray" 
-        ng-class="currMins >= 40 && item.value-1 == currHours ||
-                    currMins < 5 && item.value == currHours ||
-                    currMins >= 5 && currMins < 25 && item.value == currHours ||
-                    currMins >= 25 && item.value-1 == currHours ||
-                    currMins >= 25 && item.value == currHours-11?
-                        showClassName : hiddenClassName">{{item.name }}</li>
+        ng-repeat="item in dataen.hoursArray" 
+        ng-class="dataen.currMins >= 40 && item.value-1 == dataen.currHours ||
+                    dataen.currMins < 5 && item.value == dataen.currHours ||
+                    dataen.currMins >= 5 && dataen.currMins < 25 && item.value == dataen.currHours ||
+                    dataen.currMins >= 25 && item.value-1 == dataen.currHours ||
+                    dataen.currMins >= 25 && item.value == dataen.currHours-11?
+                        dataen.showClassName : dataen.hiddenClassName">{{item.name }}</li>
 
-    <li ng-class="currMins >= 0 && currMins < 25 && currHours == tenHours.value ||
-                    currMins >= 25 && tenHours.value-1 == currHours?
-                        showClassName : hiddenClassName">{{tenHours.name}}</li>
+    <li ng-class="dataen.currMins >= 0 && dataen.currMins < 25 && dataen.currHours == dataen.tenHours.value ||
+                    dataen.currMins >= 25 && dataen.tenHours.value-1 == dataen.currHours?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.tenHours.name}}</li>
 
-    <li ng-class="currMins < 5 ?
-                        showClassName : hiddenClassName">{{hour}}</li>
+    <li ng-class="dataen.currMins < 5 ?
+                        dataen.showClassName : dataen.hiddenClassName">{{dataen.hour}}</li>
     <ul class="digital">
-        <li>{{currHours}}:{{currMins}}:{{currSecs}} {{currAP}}</li>
+        <li>{{dataen.currHours}}:{{dataen.currMins}}:{{dataen.currSecs}} {{dataen.currAP}}</li>
     </ul>
 
 </ul>

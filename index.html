@@ -11,12 +11,12 @@
 
     <div ng-show='en' ng-controller="DataControllerEn as dataen" ng-init="init();" >
         <show-big-clock-en ng-click="change=!change"></show-big-clock-en>
-        <button ng-show="change" ng-click="changeClass()">Max/Min</button>
+        <button ng-show="change" ng-click="dataen.changeClass()">Max/Min</button>
     </div>
 
     <div ng-show="lt" ng-controller="DataController as data" ng-init="init();">
         <show-big-clock ng-click="change=!change"></show-big-clock>
-        <button ng-show="change" ng-click="changeClass()">Max/Min</button>
+        <button ng-show="change" ng-click="data.changeClass()">Max/Min</button>
     </div>
 
     <div>
