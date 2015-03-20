@@ -4,7 +4,7 @@
 
 angular
     .module('clockApp')
-    .controller('TimeControllerLt', ['$interval', '$filter',  
+    .controller('TimeLtController', ['$interval', '$filter',  
                         function($interval, $filter) {
  
     var vm = this;

@@ -10,12 +10,12 @@
 <body ng-app="clockApp" ng-init="en=true; change=false">
 
     <div ng-show='en' ng-init="init();" >
-        <show-big-clock-en ng-click="change=!change"></show-big-clock-en>
+        <clock-en ng-click="change=!change"></clock-en>
         <button ng-show="change" ng-click="timeEn.changeClass()">Max/Min</button>
     </div>
 
     <div ng-show="lt" ng-init="init();">
-        <show-big-clock-lt ng-click="change=!change"></show-big-clock-lt>
+        <clock-lt ng-click="change=!change"></clock-lt>
         <button ng-show="change" ng-click="timeLt.changeClass()">Max/Min</button>
     </div>
 
@@ -28,7 +28,7 @@
         <div ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
             <div ng-show="show" >
-                <show-test-clock-lt></show-test-clock-lt>
+                <clock-lt-test></clock-lt-test>
                  <div ng-show="show">
                     <input type="number" ng-model="currHours">
                     <input type="number" ng-model="currMins">
@@ -38,13 +38,13 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-<script type="text/javascript" src="app/app.module.js"></script>
-<script type="text/javascript" src="controllers/timeControllerEn.js"></script>
-<script type="text/javascript" src="controllers/timeControllerLt.js"></script>
-<script type="text/javascript" src="controllers/testTimeControllerLt.js"></script>
-<script type="text/javascript" src="directives/showBigClockEn.js"></script>
-<script type="text/javascript" src="directives/showBigClockLt.js"></script>
-<script type="text/javascript" src="directives/showTestClockLt.js"></script>
+<script type="text/javascript" src="app.module.js"></script>
+<script type="text/javascript" src="controllers/time-en-controller.js"></script>
+<script type="text/javascript" src="controllers/time-lt-controller.js"></script>
+<script type="text/javascript" src="controllers/time-lt-test-controller.js"></script>
+<script type="text/javascript" src="directives/clock-en-directive.js"></script>
+<script type="text/javascript" src="directives/clock-lt-directive.js"></script>
+<script type="text/javascript" src="directives/clock-lt-test-directive.js"></script>
 </body>
 
 </html>

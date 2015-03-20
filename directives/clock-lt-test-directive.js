@@ -4,14 +4,14 @@
 
 angular
     .module('clockApp')
-    .directive('showTestClockLt', testLt);
+    .directive('clockLtTest', testLt);
 
 function testLt() {
 
     var directive = {
         restrict: 'E',
-        templateUrl: 'directives/clockTestLt.html',
-        controller: "TestTimeControllerLt",
+        templateUrl: 'directives/clock-lt-test.html',
+        controller: "TimeLtTestController",
         controllerAs: "testLt"
     };
     return directive;

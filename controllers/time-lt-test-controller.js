@@ -4,8 +4,8 @@
 
 angular
     .module('clockApp')
-    .controller('TestTimeControllerLt', [
-                        function() {  //cloned lt version part inside of init for testing
+    .controller('TimeLtTestController', [
+                        function() {  //git cloned lt version part inside of init for testing
 
     var vm = this;
     //data
