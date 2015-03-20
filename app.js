@@ -1,6 +1,10 @@
+(function () {
+
+'use strict';
+
 var app = angular.module('clockApp', []);
 
-app.controller('DataController', ['$interval', '$filter',  
+app.controller('DataControllerLt', ['$interval', '$filter',  
                         function($interval, $filter) {
  
     var vm = this;
@@ -84,8 +88,9 @@ app.controller('DataControllerEn', ['$interval', '$filter',
         vm.currMins = $filter('date')(vm.input, 'mm');
         vm.currSecs = $filter('date')(vm.input, 'ss');
         vm.currAP = $filter('date')(vm.input, 'a');
+        },100 );
 
-    },100 );
+    
 //dataen    
     vm.hoursArray= [ {value:   1,     name: "One" }, 
                         {value:   2,     name: "Two"    }, 
@@ -127,79 +132,144 @@ app.controller('DataControllerEn', ['$interval', '$filter',
             vm.hiddenClassName = "hidden";
           }
     };
+    
+    vm.changeClass();
 }]);
 
 // tests
-app.controller('TestController', function() {  //cloned lt version part inside of init for testing
+app.controller('TestControllerLt', [ 'datalt',
+                        function( datalt) {  //cloned lt version part inside of init for testing
 
-var vm = this;
-//data
-vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
-                {value:   2,     name: "Dvi"        }, 
-                {value:   3,     name: "Trys"       }, 
-                {value:   4,     name: "Keturios"   }, 
-                {value:   6,     name: "Šešios"     }, 
-                {value:   7,     name: "Septynios"  }, 
-                {value:   8,     name: "Aštuonios"  },
-                {value:   9,     name: "Devynios"   },
-                {value:  11,     name: "Vienuolika" },
-                {value:  12,     name: "Dvylika"    },
-                {value:  13,     name: "Pirma"      } ];
+    var vm = this;
+    //data
+    // vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
+    //                 {value:   2,     name: "Dvi"        }, 
+    //                 {value:   3,     name: "Trys"       }, 
+    //                 {value:   4,     name: "Keturios"   }, 
+    //                 {value:   6,     name: "Šešios"     }, 
+    //                 {value:   7,     name: "Septynios"  }, 
+    //                 {value:   8,     name: "Aštuonios"  },
+    //                 {value:   9,     name: "Devynios"   },
+    //                 {value:  11,     name: "Vienuolika" },
+    //                 {value:  12,     name: "Dvylika"    },
+    //                 {value:  13,     name: "Pirma"      } ];
+    
+    // vm.tenHours = {value:  10,  name: "Dešimt"      };
+    // vm.five =   {value:  5,     name:  "Penkios"    };
+                    
+    // vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
+    //                 {value:  2,     name: "Dviejų"      }, 
+    //                 {value:  3,     name: "Trijų"       }, 
+    //                 {value:  4,     name: "Keturių"     }, 
+    //                 {value:  5,     name: "Penkių"      },  
+    //                 {value:  6,     name: "Šešių"       }, 
+    //                 {value:  7,     name: "Septynių"    }, 
+    //                 {value:  8,     name: "Aštuonių"    },
+    //                 {value:  9,     name: "Devynių"     },
+    //                 {value:  11,    name: "Vienuolikos" },
+    //                 {value:  12,    name: "Dvylikos"    },
+    //                 {value:  13,    name: "Pirmos"      }  ];  
+    
+    // vm.till = "Be";
+    // vm.after = "Po";
+    
+    // vm.fivetill = "Penkių";
+    // vm.ten = "Dešimt";
+    // vm.quarter = "Penkiolikos";
+    // vm.fifteen = "Penkiolika";
+    // vm.twenty = "Dvidešimt";
+    // vm.half = "Pusė";
+    // vm.afterhalf = "Pusės";
+    
+    // vm.hour = "Valanda";
+    // vm.hours = "Valandos";
+    // vm.morehour = "Valandų";
+    vm.datalt = datalt.getdata();
+    //classes
+    vm.showClassName = 'active';
+    vm.hiddenClassName = 'passive';
 
-vm.tenHours = {value:  10,  name: "Dešimt"      };
-vm.five =   {value:  5,     name:  "Penkios"    };
-                
-vm.hoursPastZero = [ {value:  1,     name: "Pirmos"     }, 
-                {value:  2,     name: "Dviejų"      }, 
-                {value:  3,     name: "Trijų"       }, 
-                {value:  4,     name: "Keturių"     }, 
-                {value:  5,     name: "Penkių"      },  
-                {value:  6,     name: "Šešių"       }, 
-                {value:  7,     name: "Septynių"    }, 
-                {value:  8,     name: "Aštuonių"    },
-                {value:  9,     name: "Devynių"     },
-                {value:  11,    name: "Vienuolikos" },
-                {value:  12,    name: "Dvylikos"    },
-                {value:  13,    name: "Pirmos"      }  ];  
-
-vm.till = "Be";
-vm.after = "Po";
-
-vm.fivetill = "Penkių";
-vm.ten = "Dešimt";
-vm.quarter = "Penkiolikos";
-vm.fifteen = "Penkiolika";
-vm.twenty = "Dvidešimt";
-vm.half = "Pusė";
-vm.afterhalf = "Pusės";
-
-vm.hour = "Valanda";
-vm.hours = "Valandos";
-vm.morehour = "Valandų";
-
-//classes
-vm.showClassName = 'active';
-vm.hiddenClassName = 'passive';
-
-});
+}]);
 
 app.directive('showBigClockEn', function(){
     return {
         restrict: 'E',
-        templateUrl: 'clockEn.html'
+        templateUrl: 'clockEn.html',
+        controller: "DataControllerEn",
+        controllerAs: "dataen"
     };
 });
 
-app.directive('showBigClock', function(){
+app.directive('showBigClockLt', function(){
     return {
         restrict: 'E',
-        templateUrl: 'clock.html'
+        templateUrl: 'clockLt.html',
+        controller: "DataControllerLt",
+        controllerAs: "datalt"
     };
 });
 
-app.directive('showTestClock', function(){
+app.directive('showTestClockLt', function(){
     return {
         restrict: 'E',
-        templateUrl: 'clocktest.html'
+        templateUrl: 'clockTestLt.html',
+        controller: "TestControllerLt",
+        controllerAs: "tests"
     };
 });
+
+
+// need to check this out http://jsfiddle.net/pkozlowski_opensource/PxdSP/14/
+// and http://www.technofattie.com/2014/03/21/five-guidelines-for-avoiding-scope-soup-in-angular.html
+
+app.service('datalt', function(){
+    this.getdata = function(){
+        return {
+            hoursPastHalf: [ {value:   1,     name: "Pirma"      }, 
+                        {value:   2,     name: "Dvi"        }, 
+                        {value:   3,     name: "Trys"       }, 
+                        {value:   4,     name: "Keturios"   }, 
+                        {value:   6,     name: "Šešios"     }, 
+                        {value:   7,     name: "Septynios"  }, 
+                        {value:   8,     name: "Aštuonios"  },
+                        {value:   9,     name: "Devynios"   },
+                        {value:  11,     name: "Vienuolika" },
+                        {value:  12,     name: "Dvylika"    },
+                        {value:  13,     name: "Pirma"      } ],
+        
+            tenHours :  {value:  10,     name: "Dešimt"     },
+            five :      {value:  5,     name:  "Penkios"    },
+        
+            hoursPastZero : [ {value:  1,     name: "Pirmos"     }, 
+                        {value:  2,     name: "Dviejų"      }, 
+                        {value:  3,     name: "Trijų"       }, 
+                        {value:  4,     name: "Keturių"     }, 
+                        {value:  5,     name: "Penkių"      },  
+                        {value:  6,     name: "Šešių"       }, 
+                        {value:  7,     name: "Septynių"    }, 
+                        {value:  8,     name: "Aštuonių"    },
+                        {value:  9,     name: "Devynių"     },
+                        {value:  11,    name: "Vienuolikos" },
+                        {value:  12,    name: "Dvylikos"    },
+                        {value:  13,    name: "Pirmos"      }  ],
+        
+            till : "Be",
+            after : "Po",
+            
+            fivetill : "Penkių",
+            ten : "Dešimt",
+            quarter : "Penkiolikos",
+            fifteen : "Penkiolika",
+            twenty : "Dvidešimt",
+            half : "Pusė",
+            afterhalf : "Pusės",
+        
+            hour : "Valanda",
+            hours : "Valandos",
+            morehour : "Valandų"
+        };
+            
+    };
+});
+
+})();

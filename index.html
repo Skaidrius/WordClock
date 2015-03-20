@@ -9,14 +9,14 @@
 
 <body ng-app="clockApp" ng-init="en=true; change=false">
 
-    <div ng-show='en' ng-controller="DataControllerEn as dataen" ng-init="init();" >
+    <div ng-show='en' ng-init="init();" >
         <show-big-clock-en ng-click="change=!change"></show-big-clock-en>
-        <button ng-show="change" ng-click="dataen.changeClass()">Max/Min</button>
+        <button ng-show="change" ng-click="timeEn.changeClass()">Max/Min</button>
     </div>
 
-    <div ng-show="lt" ng-controller="DataController as data" ng-init="init();">
-        <show-big-clock ng-click="change=!change"></show-big-clock>
-        <button ng-show="change" ng-click="data.changeClass()">Max/Min</button>
+    <div ng-show="lt" ng-init="init();">
+        <show-big-clock-lt ng-click="change=!change"></show-big-clock-lt>
+        <button ng-show="change" ng-click="timeLt.changeClass()">Max/Min</button>
     </div>
 
     <div>
@@ -25,10 +25,10 @@
             <span ng-show="en" ng-click="en=false; lt=true">Lt</span>
         </button>
         
-        <div ng-controller="TestController as tests" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
+        <div ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
             <div ng-show="show" >
-                <show-test-clock></show-test-clock>
+                <show-test-clock-lt></show-test-clock-lt>
                  <div ng-show="show">
                     <input type="number" ng-model="currHours">
                     <input type="number" ng-model="currMins">
@@ -38,7 +38,13 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="app/app.module.js"></script>
+<script type="text/javascript" src="controllers/timeControllerEn.js"></script>
+<script type="text/javascript" src="controllers/timeControllerLt.js"></script>
+<script type="text/javascript" src="controllers/testTimeControllerLt.js"></script>
+<script type="text/javascript" src="directives/showBigClockEn.js"></script>
+<script type="text/javascript" src="directives/showBigClockLt.js"></script>
+<script type="text/javascript" src="directives/showTestClockLt.js"></script>
 </body>
 
 </html>
