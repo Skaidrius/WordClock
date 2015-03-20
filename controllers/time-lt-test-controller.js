@@ -2,11 +2,8 @@
 
 'use strict';
 
-angular
-    .module('clockApp')
-    .controller('TimeLtTestController', [
-                        function() {  //git cloned lt version part inside of init for testing
-
+function TimeLtTestController() {
+    
     var vm = this;
     //data
     vm.hoursPastHalf= [ {value:   1,     name: "Pirma" }, 
@@ -55,7 +52,11 @@ angular
     //classes
     vm.showClassName = 'active';
     vm.hiddenClassName = 'passive';
+    
+}
 
-}]);
+angular
+    .module('clockApp')
+    .controller('TimeLtTestController', TimeLtTestController);
 
 })();

@@ -2,11 +2,7 @@
 
 'use strict';
 
-angular
-    .module('clockApp')
-    .controller('TimeEnController', ['$interval', '$filter',
-                        function($interval, $filter) {
-
+function TimeEnController ($interval, $filter) {
     var vm = this;
 //timeen
     vm.init = $interval(function(){
@@ -17,9 +13,8 @@ angular
         vm.currAP = $filter('date')(vm.input, 'a');
         },100 );
 
-    
 //dataen    
-    vm.hoursArray= [ {value:   1,     name: "One" }, 
+    vm.hoursArray = [ {value:   1,     name: "One" }, 
                         {value:   2,     name: "Two"    }, 
                         {value:   3,     name: "Three"  }, 
                         {value:   4,     name: "Four"   },
@@ -42,10 +37,9 @@ angular
     vm.fifteen = "Quarter";
     vm.twenty = "Twenty";
     vm.half = "Half Of";
-    vm.afterhalf = "Half Of";
 
     vm.hour = "O'Clock";
-    
+
 //classes    
     vm.showClassName = 'active';
     vm.hiddenClassName = 'passive';
@@ -61,6 +55,10 @@ angular
     };
     
     vm.changeClass();
-}]);
+}
+
+angular
+    .module('clockApp')
+    .controller('TimeEnController',TimeEnController);
 
 })();

@@ -2,10 +2,6 @@
 
 'use strict';
 
-angular
-    .module('clockApp')
-    .directive('clockLtTest', testLt);
-
 function testLt() {
 
     var directive = {
@@ -17,5 +13,9 @@ function testLt() {
     return directive;
 
 }
+
+angular
+    .module('clockApp')
+    .directive('clockLtTest', testLt);
 
 })();
