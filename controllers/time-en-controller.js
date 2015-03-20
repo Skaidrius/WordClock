@@ -59,6 +59,6 @@ function TimeEnController ($interval, $filter) {
 
 angular
     .module('clockApp')
-    .controller('TimeEnController',TimeEnController);
+    .controller('TimeEnController', ['$interval', '$filter', TimeEnController]);
 
 })();
