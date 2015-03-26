@@ -59,9 +59,6 @@ function TimeLtController($interval, $filter){
     vm.morehour = "Valandų";
 
 //classes
-    vm.showClassName = 'active';
-    vm.hiddenClassName = 'passive';
-    
     vm.changeClass = function(){
         if (vm.showClassName != "active"){
             vm.showClassName = "active";
@@ -71,11 +68,9 @@ function TimeLtController($interval, $filter){
             vm.hiddenClassName = "hidden";
           }
     };
-    
 }
 
 angular
     .module('clockApp')
     .controller('TimeLtController', ['$interval', '$filter', TimeLtController]);
- 
 })();

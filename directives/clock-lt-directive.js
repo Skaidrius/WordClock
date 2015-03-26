@@ -16,5 +16,4 @@ function clockLt() {
 angular
     .module('clockApp')
     .directive('clockLt', clockLt);
-
 })();

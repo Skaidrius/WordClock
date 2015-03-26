@@ -3,7 +3,9 @@
 'use strict';
 
 function TimeEnController ($interval, $filter) {
+    
     var vm = this;
+
 //timeen
     vm.init = $interval(function(){
         vm.input = new Date();
@@ -37,13 +39,9 @@ function TimeEnController ($interval, $filter) {
     vm.fifteen = "Quarter";
     vm.twenty = "Twenty";
     vm.half = "Half Of";
-
     vm.hour = "O'Clock";
 
 //classes    
-    vm.showClassName = 'active';
-    vm.hiddenClassName = 'passive';
-
     vm.changeClass = function(){
         if (vm.showClassName != "active"){
             vm.showClassName = "active";
@@ -53,12 +51,9 @@ function TimeEnController ($interval, $filter) {
             vm.hiddenClassName = "hidden";
           }
     };
-    
-    vm.changeClass();
 }
 
 angular
     .module('clockApp')
     .controller('TimeEnController', ['$interval', '$filter', TimeEnController]);
-
 })();

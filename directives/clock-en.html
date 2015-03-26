@@ -1,37 +1,45 @@
 <div class="clck-bgr">
 <ul>
+    <!--shows FIVE-->
     <li ng-class="timeEn.currMins < 10 && timeEn.five.value == timeEn.currHours ||
                     timeEn.currMins >=5 && timeEn.currMins < 10 ||
                     timeEn.currMins >= 35 && timeEn.currMins < 40 || 
                     timeEn.currMins >=25 && timeEn.currMins < 30 || 
                     timeEn.currMins >=  55 ? 
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.five.name}}</li>
-                    
+    
+    <!--shows TEN                -->
     <li ng-class="timeEn.currMins >= 50 && timeEn.currMins < 55 ||
                     timeEn.currMins >=10 && timeEn.currMins < 15 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.ten}}</li>
-                        
+    
+    <!--shows QUARTER                    -->
     <li ng-class="timeEn.currMins >= 15 && timeEn.currMins < 20 ||
                     timeEn.currMins >= 45 && timeEn.currMins < 50 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.fifteen}}</li>
-                        
+    
+    <!--shows TWENTY                    -->
     <li ng-class="timeEn.currMins >= 40 && timeEn.currMins < 45 ||
                     timeEn.currMins >= 20 && timeEn.currMins < 25 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.twenty}}</li>
-
+    
+    <!--shows TILL -->
     <li ng-class="timeEn.currMins >= 25 && timeEn.currMins < 30 ||
                     timeEn.currMins >= 40 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.till}}</li>
-                        
+    
+    <!--shows PAST -->                    
     <li ng-class="timeEn.currMins >= 5 && timeEn.currMins < 25 ||
                     timeEn.currMins >= 35 && timeEn.currMins < 40 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.after}}</li>
-                        
+    
+    <!--shows HALF OF -->                    
     <li ng-class="timeEn.currMins >= 25 && timeEn.currMins < 35 ||
                     timeEn.currMins >= 35 && timeEn.currMins < 40 ||
                     timeEn.currMins >= 35 && timeEn.currMins < 40 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.half}}</li>
-
+    
+    <!--shows HOURS -->
     <li ng-show="item.value!= 13" 
         ng-repeat="item in timeEn.hoursArray" 
         ng-class="timeEn.currMins >= 40 && item.value-1 == timeEn.currHours ||
@@ -40,20 +48,22 @@
                     timeEn.currMins >= 25 && item.value-1 == timeEn.currHours ||
                     timeEn.currMins >= 25 && item.value == timeEn.currHours-11?
                         timeEn.showClassName : timeEn.hiddenClassName">{{item.name }}</li>
-
+    
+    <!--shows TEN HOUR -->
     <li ng-class="timeEn.currMins >= 0 && timeEn.currMins < 25 && timeEn.currHours == timeEn.tenHours.value ||
                     timeEn.currMins >= 25 && timeEn.tenHours.value-1 == timeEn.currHours?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.tenHours.name}}</li>
-
+    
+    <!--shows O'CLOCK -->
     <li ng-class="timeEn.currMins < 5 ?
                         timeEn.showClassName : timeEn.hiddenClassName">{{timeEn.hour}}</li>
+    
+    <!--shows DIGITAL CLOCK + PM -->
     <ul class="digital">
         <li>{{timeEn.currHours}}:{{timeEn.currMins}}:{{timeEn.currSecs}} {{timeEn.currAP}}</li>
     </ul>
 
 </ul>
     
-
-
 
 </div>

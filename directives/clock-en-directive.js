@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 function clockEn() {
     
     var directive = {
@@ -12,11 +11,9 @@ function clockEn() {
         controllerAs: "timeEn"
     };
     return directive;
-
-    }
+}
 
 angular
     .module('clockApp')
     .directive('clockEn', clockEn);
-
 })();

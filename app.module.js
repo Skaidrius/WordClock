@@ -1,2 +1,2 @@
 angular
-    .module('clockApp', []);
+    .module('clockApp', ['ngPicky']);

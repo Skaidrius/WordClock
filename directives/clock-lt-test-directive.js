@@ -11,11 +11,9 @@ function testLt() {
         controllerAs: "testLt"
     };
     return directive;
-
 }
 
 angular
     .module('clockApp')
     .directive('clockLtTest', testLt);
-
 })();
