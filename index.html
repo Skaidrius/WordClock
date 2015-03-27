@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <title>Laikrodukas</title>
     <link type="text/css" rel="stylesheet" href="style.css"></link>
-    <link type="text/css" rel="stylesheet" href="bower_components/ng-picky/src/style.css"></link>
+    <link type="text/css" rel="stylesheet" href="bower_components/ng-picky/src/ng-picky.css"></link>
 </head>
 
 <body ng-app="clockApp" ng-init="en=true; change=false">
 
     <div >
         <!--CLOCKS-->
-        
         <!--clock english-->
         <clock-en ng-show='en' 
             ng-click="  change=!change;
@@ -41,29 +40,32 @@
         </clock-lt>
     </div>
 
+    <!--<clock-buttons></clock-buttons>-->
     <div>
         <!--BUTTONS/SETTINGS -->
         
-        <!--1. Min/max-->
-        <button ng-show="change && en" ng-click="timeEn.changeClass(); change=!change">Max/Min</button>
-        <button ng-show="change && lt" ng-click="timeLt.changeClass(); change=!change">Max/Min</button>
-        
+        <!--1. CLOCK Min/max-->
+        <button ng-show="change">
+            <span ng-show="lt" ng-click="timeLt.changeClass(); change=!change">Max/Min</span>
+            <span ng-show="en" ng-click="timeEn.changeClass(); change=!change">Max/Min</span>
+        </button>
+
         <!--2. Settings-->
-        <button ng-show="change" ng-init="en=true">
-            <span ng-show="lt" ng-click="sets=!sets; color=false; lang=false; picker=false">Nustatymai</span>
-            <span ng-show="en" ng-click="sets=!sets; color=false; lang=false; picker=false">Settings</span>
+        <button ng-show="change" ng-init="en=true" ng-click="sets=!sets; color=false; lang=false; picker=false">
+            <span ng-show="lt">Nustatymai</span>
+            <span ng-show="en">Settings</span>
         </button>
         
         <!--3. Back -->
-        <button ng-show="change" ng-init="en=true">
-            <span ng-show="lt" ng-click="change=!change; sets=false">Laikrodis</span>
-            <span ng-show="en" ng-click="change=!change; sets=false">ClockView</span>
+        <button ng-show="change" ng-init="en=true" ng-click="change=!change; sets=false">
+            <span ng-show="lt">Laikrodis</span>
+            <span ng-show="en">ClockView</span>
         </button>
         
         <!--2.1. Language -->
-        <button ng-show="change && sets">
-            <span ng-show="lt" ng-click="lang=!lang; color=false">Kalba</span>
-            <span ng-show="en" ng-click="lang=!lang; color=false">Language</span>
+        <button ng-show="change && sets" ng-click="lang=!lang; color=false">
+            <span ng-show="lt">Kalba</span>
+            <span ng-show="en">Language</span>
         </button>
         
         <!--2.1.1. Language > pick language button-->
@@ -73,29 +75,26 @@
         </button>
         
         <!--2.2. Colors -->
-        <button ng-show="change && sets">
-            <span ng-show="lt" ng-click="color=!color; lang=false">Spalvos</span>
-            <span ng-show="en" ng-click="color=!color; lang=false">Color</span>
+        <button ng-show="change && sets" ng-click="color=!color; lang=false">
+            <span ng-show="lt">Spalvos</span>
+            <span ng-show="en">Color</span>
         </button>
         
         <!--2.2.1. Colors > background-->
-        <button ng-show="change && sets && color">
-            <span ng-show="lt" ng-click="picker=!picker">Fonas</span>
-            <span ng-show="en" ng-click="picker=!picker">Background</span>
+        <button ng-show="change && sets && color" ng-click="picker=!picker">
+            <span ng-show="lt">Fonas</span>
+            <span ng-show="en">Background</span>
         </button>
         
         <!--2.2.2. Colors > font-->
-        <button ng-show="change && sets && color">
-            <span ng-show="lt" ng-click="picker=!picker">Raidės</span>
-            <span ng-show="en" ng-click="picker=!picker">Font</span>
+        <button ng-show="change && sets && color" ng-click="picker=!picker">
+            <span ng-show="lt">Raidės</span>
+            <span ng-show="en">Font</span>
         </button>
         
         <!--2.2.1.1 && 2.2.2.1. Colors > background(font)> color - picker-->
-        <div ng-show="picker">
-        <div ng-show="picker" class='preview' style='color:{{color | toHex}};'></div>
         <picker ng-show="picker" color='color'></picker>
-        </div>
-        
+
         <!--HOURS AND MINS TEST ENVIRONMENT -->
         <div ng-show="change" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
             <button ng-init="show=false;" ng-click="show=!show">Test</button>
@@ -115,8 +114,7 @@
 <script type="text/javascript" src="directives/clock-en-directive.js"></script>
 <script type="text/javascript" src="directives/clock-lt-directive.js"></script>
 <script type="text/javascript" src="directives/clock-lt-test-directive.js"></script>
-<script type="text/javascript" src="services/data-en-service.js"></script>
-<script type="text/javascript" src="services/data-lt-service.js"></script>
+<script type="text/javascript" src="directives/clock-buttons-directive.js"></script>
 <script type="text/javascript" src="services/change-class-factory.js"></script>
 <script type="text/javascript" src="bower_components/ng-picky/src/ng-picky.js"></script>
 

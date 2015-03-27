@@ -12,7 +12,7 @@ ul {
     height: auto;
     border: 1px solid grey;
     padding: 0.7em; 
-    margin: 5px;
+    margin: 0px;
     
 }
 ul li    {
@@ -52,7 +52,7 @@ button, input {
     font-size: 0.6em}
 
 .digital {
-    font-size: 24px;
+    font-size: 20px;
     border: none;
     margin-bottom: 0;
     padding-bottom: 0;

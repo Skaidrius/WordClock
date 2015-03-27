@@ -22,7 +22,7 @@
   box-shadow:0 3px 5px rgba(0, 0, 0, 0.1);
 
   /* let user style width */
-  width:300px;
+  max-width:11em;
 
   user-select:none;
   -webkit-user-select:none;
