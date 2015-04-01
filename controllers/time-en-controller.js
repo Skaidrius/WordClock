@@ -2,10 +2,9 @@
 
 'use strict';
 
-function TimeEnController ($interval, $filter) {
+function TimeController ($interval, $filter) {
     
     var vm = this;
-
 //timeen
     vm.init = $interval(function(){
         vm.input = new Date();
@@ -55,5 +54,5 @@ function TimeEnController ($interval, $filter) {
 
 angular
     .module('clockApp')
-    .controller('TimeEnController', ['$interval', '$filter', TimeEnController]);
+    .controller('TimeControllerEn', ['$interval', '$filter', TimeController]);
 })();

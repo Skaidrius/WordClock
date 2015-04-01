@@ -12,21 +12,24 @@
 
     <div >
         <!--CLOCKS-->
-        <!--clock english-->
-        <clock-en ng-show='en' 
+        
+        <!--english clock -->
+        <clock-en 
+            ng-show='en' 
             ng-click="  change=!change;
                         sets=false;
                         color=false;
                         picker=false;
                         lang=false" 
             ng-init="   init();
-                        timeEn.showClassName='active'; 
+                        timeEn.showClassName='active';
                         timeEn.hiddenClassName='passive';
                         change=false;
-                        picker=false">
-        </clock-en>
-        <!--clock lithuanian-->
-        <clock-lt ng-show="lt"
+                        picker=false"></clock-en>
+
+        <!--lithuanian clock -->
+        <clock-lt 
+            ng-show="lt"
             ng-click="  change=!change;
                         sets=false;
                         color=false;
@@ -36,74 +39,22 @@
                         timeLt.showClassName='active'; 
                         timeLt.hiddenClassName='passive';
                         change=false;
-                        picker=false">
-        </clock-lt>
-    </div>
+                        picker=false"></clock-lt>
 
-    <!--<clock-buttons></clock-buttons>-->
-    <div>
-        <!--BUTTONS/SETTINGS -->
-        
-        <!--1. CLOCK Min/max-->
-        <button ng-show="change">
-            <span ng-show="lt" ng-click="timeLt.changeClass(); change=!change">Max/Min</span>
-            <span ng-show="en" ng-click="timeEn.changeClass(); change=!change">Max/Min</span>
-        </button>
-
-        <!--2. Settings-->
-        <button ng-show="change" ng-init="en=true" ng-click="sets=!sets; color=false; lang=false; picker=false">
-            <span ng-show="lt">Nustatymai</span>
-            <span ng-show="en">Settings</span>
-        </button>
-        
-        <!--3. Back -->
-        <button ng-show="change" ng-init="en=true" ng-click="change=!change; sets=false">
-            <span ng-show="lt">Laikrodis</span>
-            <span ng-show="en">ClockView</span>
-        </button>
-        
-        <!--2.1. Language -->
-        <button ng-show="change && sets" ng-click="lang=!lang; color=false">
-            <span ng-show="lt">Kalba</span>
-            <span ng-show="en">Language</span>
-        </button>
-        
-        <!--2.1.1. Language > pick language button-->
-        <button ng-show="change && sets && lang">
-            <span ng-show="lt" ng-click="en=true; lt=false; change=!change">En</span>
-            <span ng-show="en" ng-click="en=false; lt=true; change=!change">Lt</span>
-        </button>
-        
-        <!--2.2. Colors -->
-        <button ng-show="change && sets" ng-click="color=!color; lang=false">
-            <span ng-show="lt">Spalvos</span>
-            <span ng-show="en">Color</span>
-        </button>
-        
-        <!--2.2.1. Colors > background-->
-        <button ng-show="change && sets && color" ng-click="picker=!picker">
-            <span ng-show="lt">Fonas</span>
-            <span ng-show="en">Background</span>
-        </button>
-        
-        <!--2.2.2. Colors > font-->
-        <button ng-show="change && sets && color" ng-click="picker=!picker">
-            <span ng-show="lt">Raidės</span>
-            <span ng-show="en">Font</span>
-        </button>
-        
-        <!--2.2.1.1 && 2.2.2.1. Colors > background(font)> color - picker-->
-        <picker ng-show="picker" color='color'></picker>
-
+        <clock-buttons ng-show="change"></clock-buttons>
+    
         <!--HOURS AND MINS TEST ENVIRONMENT -->
-        <div ng-show="change" ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
-            <button ng-init="show=false;" ng-click="show=!show">Test</button>
-            <div ng-show="show" >
-                <clock-lt-test></clock-lt-test>
-                    <input type="number" ng-model="currHours">
-                    <input type="number" ng-model="currMins">
-            </div>
+        <button ng-show="change" 
+                ng-init="show=false;" 
+                ng-click="show=!show">Test
+        </button>
+        <clock-lt-test ng-show="show"></clock-lt-test>
+        <div ng-show="show" 
+                ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
+            <input type="number" ng-model="currHours" ng-show="show" >
+            <input type="number" ng-model="currMins" ng-show="show" >
         </div>
+    
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
@@ -113,7 +64,7 @@
 <script type="text/javascript" src="controllers/time-lt-test-controller.js"></script>
 <script type="text/javascript" src="directives/clock-en-directive.js"></script>
 <script type="text/javascript" src="directives/clock-lt-directive.js"></script>
-<script type="text/javascript" src="directives/clock-lt-test-directive.js"></script>
+<script type="text/javascript" src="directives/test/clock-lt-test-directive.js"></script>
 <script type="text/javascript" src="directives/clock-buttons-directive.js"></script>
 <script type="text/javascript" src="services/change-class-factory.js"></script>
 <script type="text/javascript" src="bower_components/ng-picky/src/ng-picky.js"></script>
@@ -121,3 +72,6 @@
 </body>
 
 </html>
+
+
+<!--http://jsbin.com/yinonejetu/1/edit interesting way to avoid many similar directives-->

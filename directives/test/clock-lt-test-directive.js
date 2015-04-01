@@ -6,7 +6,7 @@ function testLt() {
 
     var directive = {
         restrict: 'E',
-        templateUrl: 'directives/clock-lt-test.html',
+        templateUrl: 'directives/test/clock-lt-test.html',
         controller: "TimeLtTestController",
         controllerAs: "testLt"
     };

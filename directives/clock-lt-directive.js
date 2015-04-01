@@ -7,7 +7,7 @@ function clockLt() {
     var directive = {
         restrict: 'E',
         templateUrl: 'directives/clock-lt.html',
-        controller: "TimeLtController",
+        controller: "TimeControllerlt",
         controllerAs: "timeLt"
     };
     return directive;

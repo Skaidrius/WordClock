@@ -6,7 +6,7 @@ function clockButtons() {
     
     var directive = {
         restrict: 'E',
-        templateURL: 'directives/clock-buttons.html'
+        templateUrl: 'directives/clock-buttons.html'
     };
     return directive;
 }

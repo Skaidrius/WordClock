@@ -72,5 +72,5 @@ function TimeLtController($interval, $filter){
 
 angular
     .module('clockApp')
-    .controller('TimeLtController', ['$interval', '$filter', TimeLtController]);
+    .controller('TimeControllerlt', ['$interval', '$filter', TimeLtController]);
 })();

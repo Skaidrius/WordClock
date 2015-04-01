@@ -5,9 +5,9 @@
 function clockEn() {
     
     var directive = {
-        restrict: 'E',
+        restrict: 'AE',
         templateUrl: 'directives/clock-en.html',
-        controller: "TimeEnController",
+        controller: "TimeControllerEn",
         controllerAs: "timeEn"
     };
     return directive;
