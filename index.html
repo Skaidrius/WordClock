@@ -10,36 +10,34 @@
 
 <body ng-app="clockApp" ng-init="en=true; change=false">
 
-    <div >
+    <div>
         <!--CLOCKS-->
         
         <!--english clock -->
-        <clock-en 
+        <div clock="en" 
             ng-show='en' 
             ng-click="  change=!change;
                         sets=false;
                         color=false;
                         picker=false;
                         lang=false" 
-            ng-init="   init();
-                        timeEn.showClassName='active';
-                        timeEn.hiddenClassName='passive';
+            ng-init="   initEn();
                         change=false;
-                        picker=false"></clock-en>
+                        picker=false">
+        </div>
 
         <!--lithuanian clock -->
-        <clock-lt 
+        <div clock="lt" 
             ng-show="lt"
             ng-click="  change=!change;
                         sets=false;
                         color=false;
                         picker=false;
                         lang=false" 
-            ng-init="   init();
-                        timeLt.showClassName='active'; 
-                        timeLt.hiddenClassName='passive';
+            ng-init="   initLt();
                         change=false;
-                        picker=false"></clock-lt>
+                        picker=false">
+        </div>
 
         <clock-buttons ng-show="change"></clock-buttons>
     
@@ -51,22 +49,19 @@
         <clock-lt-test ng-show="show"></clock-lt-test>
         <div ng-show="show" 
                 ng-init="currHours = '1'; currMins = '0'; currSecs = '0'">
-            <input type="number" ng-model="currHours" ng-show="show" >
-            <input type="number" ng-model="currMins" ng-show="show" >
+            <!--<input type="number" ng-model="currHours" ng-show="show" >-->
+            <!--<input type="number" ng-model="currMins" ng-show="show" >-->
         </div>
     
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
 <script type="text/javascript" src="app.module.js"></script>
-<script type="text/javascript" src="controllers/time-en-controller.js"></script>
-<script type="text/javascript" src="controllers/time-lt-controller.js"></script>
+<script type="text/javascript" src="controllers/time-controller.js"></script>
 <script type="text/javascript" src="controllers/time-lt-test-controller.js"></script>
-<script type="text/javascript" src="directives/clock-en-directive.js"></script>
-<script type="text/javascript" src="directives/clock-lt-directive.js"></script>
+<script type="text/javascript" src="directives/clock-directive.js"></script>
 <script type="text/javascript" src="directives/test/clock-lt-test-directive.js"></script>
 <script type="text/javascript" src="directives/clock-buttons-directive.js"></script>
-<script type="text/javascript" src="services/change-class-factory.js"></script>
 <script type="text/javascript" src="bower_components/ng-picky/src/ng-picky.js"></script>
 
 </body>

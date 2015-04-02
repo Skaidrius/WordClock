@@ -2,13 +2,32 @@
 
 'use strict';
 
-function TimeControllerLtTest() {
+function TimeController($interval, $filter, ClassChanger){
     
     var vm = this;
-    //data
-    vm.datatest = [
+
+//Initialization of clock formats 
+//  Lithuanian clock format 24:00:00
+    vm.initLt = $interval(function(){
+        vm.input = new Date();
+        vm.currHours = $filter('date')(vm.input, 'HH');
+        vm.currMins = $filter('date')(vm.input, 'mm');
+        vm.currSecs = $filter('date')(vm.input, 'ss');
+    },100 );
+    
+//  English clock format 12:00:00 PM
+    vm.initEn = $interval(function(){
+        vm.input = new Date();
+        vm.currHours = $filter('date')(vm.input, 'h');
+        vm.currMins = $filter('date')(vm.input, 'mm');
+        vm.currSecs = $filter('date')(vm.input, 'ss');
+        vm.currAP = $filter('date')(vm.input, 'a');
+    },100 );
+
+//  getting clock hours and mins names from data.json
+    vm.data = [
         {
-            "test" : {
+            "languageLt" : {
                 "hoursPastHalf" : [ {"value":   1,   "name": "Pirma"    }, 
                                 {"value":   2,     "name": "Dvi"        }, 
                                 {"value":   3,     "name": "Trys"       }, 
@@ -48,16 +67,52 @@ function TimeControllerLtTest() {
                 "hours" :         "Valandos",
                 "morehour" :      "Valandų"
             }  
+        },
+        {
+            "languageEn" : {
+                "hoursArray" : [   {"value":   1,     "name": "One" }, 
+                                {"value":   2,     "name": "Two"    }, 
+                                {"value":   3,     "name": "Three"  }, 
+                                {"value":   4,     "name": "Four"   },
+                                {"value":   5,     "name": "Five"   },
+                                {"value":   6,     "name": "Six"    }, 
+                                {"value":   7,     "name": "Seven"  }, 
+                                {"value":   8,     "name": "Eight"  },
+                                {"value":   9,     "name": "Nine"   },
+                                {"value":  11,     "name": "Eleven" },
+                                {"value":  12,     "name": "Twelve" },
+                                {"value":  13,     "name": "One"    } ],
+
+                "till" :        "Till",
+                "after" :       "Past",
+                "five" :        "Five",
+                "ten" :         "Ten",
+                "tenHours" :    "Ten",
+                "fifteen" :     "Quarter",
+                "twenty" :      "Twenty",
+                "half" :        "Half Of",
+                "hour" :        "O'Clock"
+            }
         }
     ];
-    vm.data = vm.datatest[0].test;
+    vm.datalt = vm.data[0].languageLt;
+    vm.dataen = vm.data[1].languageEn;
 
-    //classes
+//classes
     vm.showClassName = 'actual';
     vm.hiddenClassName = 'neutral';
+    vm.changeClass = function(){
+        if (vm.showClassName != "actual"){
+            vm.showClassName = "actual";
+            vm.hiddenClassName = "neutral";
+          } else {
+            vm.showClassName = "visible";
+            vm.hiddenClassName = "hidden";
+          }
+    };
 }
 
 angular
     .module('clockApp')
-    .controller('TimeControllerLtTest', TimeControllerLtTest);
+    .controller('TimeController', ['$interval', '$filter', TimeController]);
 })();

@@ -30,16 +30,16 @@ button, input {
 	color:#623F1D;
 	font-family:'Helvetica Neue',sans-serif;
 	font-size:16px;
-	border-radius:30px;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
 	border:1px solid grey;
 }
 
-.active {
+.actual {
     color: #000; 
     font-size: 1.4em}
-.passive  {
+.neutral  {
     color: #777; 
     font-size: 0.6em}
 

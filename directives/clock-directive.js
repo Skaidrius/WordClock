@@ -2,11 +2,13 @@
 
 'use strict';
 
-function clockLt() {
+function clock() {
     
     var directive = {
         restrict: 'AE',
-        templateUrl: 'directives/clock-lt.html',
+        // templateUrl: 'directives/clock-en.html',
+        templateUrl: function(element, attr){
+            return 'directives/clock-'+attr.clock+'.html'},
         controller: "TimeController",
         controllerAs: "clock"
     };
@@ -15,5 +17,5 @@ function clockLt() {
 
 angular
     .module('clockApp')
-    .directive('clockLt', clockLt);
+    .directive('clock', clock);
 })();

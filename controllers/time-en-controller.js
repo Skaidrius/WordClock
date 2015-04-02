@@ -2,7 +2,7 @@
 
 'use strict';
 
-function TimeController ($interval, $filter) {
+function TimeControllerEn ($interval, $filter) {
     
     var vm = this;
 //timeen
@@ -15,7 +15,7 @@ function TimeController ($interval, $filter) {
         },100 );
 
 //dataen    
-    vm.hoursArray = [ {value:   1,     name: "One" }, 
+    vm.hoursArray = [   {value:   1,     name: "One"    }, 
                         {value:   2,     name: "Two"    }, 
                         {value:   3,     name: "Three"  }, 
                         {value:   4,     name: "Four"   },
@@ -25,11 +25,11 @@ function TimeController ($interval, $filter) {
                         {value:   8,     name: "Eight"  },
                         {value:   9,     name: "Nine"   },
                         {value:  11,     name: "Eleven" },
-                        {value:  12,     name: "Twelve"    },
-                        {value:  13,     name: "One"      } ];
+                        {value:  12,     name: "Twelve" },
+                        {value:  13,     name: "One"    } ];
         
-    vm.tenHours = {value:  10,     name: "Ten"   };
-    vm.five =   {value:  5,     name:  "Five"    };
+    vm.tenHours =       {value:  10,     name: "Ten"    };
+    vm.five =           {value:  5,     name:  "Five"   };
 
     vm.till = "Till";
     vm.after = "Past";
@@ -40,11 +40,14 @@ function TimeController ($interval, $filter) {
     vm.half = "Half Of";
     vm.hour = "O'Clock";
 
-//classes    
+//classes
+    vm.showClassName = 'actual';
+    vm.hiddenClassName = 'neutral';
+
     vm.changeClass = function(){
-        if (vm.showClassName != "active"){
-            vm.showClassName = "active";
-            vm.hiddenClassName = "passive";
+        if (vm.showClassName != "actual"){
+            vm.showClassName = "actual";
+            vm.hiddenClassName = "neutral";
           } else {
             vm.showClassName = "visible";
             vm.hiddenClassName = "hidden";
@@ -54,5 +57,5 @@ function TimeController ($interval, $filter) {
 
 angular
     .module('clockApp')
-    .controller('TimeControllerEn', ['$interval', '$filter', TimeController]);
+    .controller('TimeControllerEn', ['$interval', '$filter', TimeControllerEn]);
 })();

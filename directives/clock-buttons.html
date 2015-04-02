@@ -2,8 +2,7 @@
     
 <!--1. CLOCK Min/max-->
 <button ng-show="change">
-    <span ng-show="lt" ng-click="timeLt.changeClass(); change=!change">Max/Min</span>
-    <span ng-show="en" ng-click="timeEn.changeClass(); change=!change">Max/Min</span>
+    <span ng-click="clock.changeClass(); change=!change">Max/Min</span>
 </button>
 
 <!--2. Settings-->
@@ -49,6 +48,6 @@
 </button>
 
 <!--2.2.1.1 && 2.2.2.1. Colors > background(font)> color - picker-->
-<div ng-show="picker" class='preview' style='color:{{color | toHex}};'></div>
-<picker ng-show="picker" color='color'></picker>
+<!--<div ng-show="picker" class='preview' style='color:{{color | toHex}};'></div>-->
+<!--<picker ng-show="picker" color='color'></picker>-->
 
